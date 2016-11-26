@@ -15,5 +15,3 @@ FOUNDATION_EXPORT double SnackKitVersionNumber;
 FOUNDATION_EXPORT const unsigned char SnackKitVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <SnackKit/PublicHeader.h>
-
-
