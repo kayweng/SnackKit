@@ -58,7 +58,7 @@ extension UIView {
         }
     }
     
-    public func resetted(){
+    public func reset(){
         
         for ctrl in self.subviews{
             //UITextField
@@ -158,6 +158,19 @@ extension UIView {
 
         self.layer.insertSublayer(gradient, at: 0)
     }
+    
+    public func TransiteFromTop(duration:CFTimeInterval){
+        
+        let animation:CATransition = CATransition()
+        
+        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        animation.type = kCATransitionPush
+        animation.subtype = kCATransitionFromTop
+        animation.duration = duration
+        
+        self.layer.add(animation, forKey: kCATransitionPush)
+    }
+
 }
 
 

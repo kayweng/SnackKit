@@ -24,6 +24,7 @@
 		BA09A53F1DE1953200369181 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA09A53E1DE1953200369181 /* CoreDataManager.swift */; };
 		BA09A5411DE197D600369181 /* AppErrorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA09A5401DE197D600369181 /* AppErrorManager.swift */; };
 		BA09A5441DE1A75300369181 /* RegExpHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA09A5431DE1A75300369181 /* RegExpHelper.swift */; };
+		BA2C05DB1DF82E4600922EC4 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2C05DA1DF82E4600922EC4 /* LocationManager.swift */; };
 		BA7986D51DE34FBC00F900C1 /* BaseInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7986D01DE34FBC00F900C1 /* BaseInfo.swift */; };
 		BA7986D61DE34FBC00F900C1 /* BaseEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7986D11DE34FBC00F900C1 /* BaseEnums.swift */; };
 		BA7986D71DE34FBC00F900C1 /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7986D21DE34FBC00F900C1 /* Extension+UIView.swift */; };
@@ -45,6 +46,9 @@
 		BA7986F71DE3508C00F900C1 /* Extension+UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7986E81DE3508C00F900C1 /* Extension+UITextField.swift */; };
 		BA7986F81DE3508C00F900C1 /* Extension+UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7986E91DE3508C00F900C1 /* Extension+UITextView.swift */; };
 		BACADF791DE5F55600604400 /* SnackKit.h in Headers */ = {isa = PBXBuildFile; fileRef = BA09A50A1DDFED7E00369181 /* SnackKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BAD0D4831DEF07AD00E2BA09 /* ApiHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD0D4821DEF07AD00E2BA09 /* ApiHelper.swift */; };
+		BAD0D4941DEF1D3600E2BA09 /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BAD0D4801DEF067A00E2BA09 /* fontawesome-webfont.ttf */; };
+		BAD0D4951DEF1D3600E2BA09 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = BAD0D4811DEF067A00E2BA09 /* FontAwesome.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +72,7 @@
 		BA09A53E1DE1953200369181 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		BA09A5401DE197D600369181 /* AppErrorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppErrorManager.swift; sourceTree = "<group>"; };
 		BA09A5431DE1A75300369181 /* RegExpHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegExpHelper.swift; sourceTree = "<group>"; };
+		BA2C05DA1DF82E4600922EC4 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		BA7986D01DE34FBC00F900C1 /* BaseInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseInfo.swift; sourceTree = "<group>"; };
 		BA7986D11DE34FBC00F900C1 /* BaseEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseEnums.swift; sourceTree = "<group>"; };
 		BA7986D21DE34FBC00F900C1 /* Extension+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
@@ -88,6 +93,9 @@
 		BA7986E71DE3508C00F900C1 /* Extension+UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+UITableView.swift"; sourceTree = "<group>"; };
 		BA7986E81DE3508C00F900C1 /* Extension+UITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+UITextField.swift"; sourceTree = "<group>"; };
 		BA7986E91DE3508C00F900C1 /* Extension+UITextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+UITextView.swift"; sourceTree = "<group>"; };
+		BAD0D4801DEF067A00E2BA09 /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fontawesome-webfont.ttf"; sourceTree = "<group>"; };
+		BAD0D4811DEF067A00E2BA09 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
+		BAD0D4821DEF07AD00E2BA09 /* ApiHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,11 +136,11 @@
 		BA09A5091DDFED7E00369181 /* SnackKit */ = {
 			isa = PBXGroup;
 			children = (
+				BAD0D47E1DEF05C100E2BA09 /* Supporting Files */,
 				BA7986DA1DE34FC600F900C1 /* Extension */,
 				BA7986CF1DE34F9300F900C1 /* Base */,
 				BA7986CE1DE34F7B00F900C1 /* Helpers */,
 				BA7986CD1DE34F6B00F900C1 /* Managers */,
-				BA09A50B1DDFED7E00369181 /* Info.plist */,
 				BA09A50A1DDFED7E00369181 /* SnackKit.h */,
 			);
 			path = SnackKit;
@@ -160,6 +168,7 @@
 				BA09A53E1DE1953200369181 /* CoreDataManager.swift */,
 				BA09A5161DDFEEA700369181 /* AVMediaManager.swift */,
 				BA09A5181DDFEECB00369181 /* MFMailManager.swift */,
+				BA2C05DA1DF82E4600922EC4 /* LocationManager.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -172,6 +181,7 @@
 				BA09A51E1DDFEF9D00369181 /* AppCoreData.swift */,
 				BA09A51A1DDFEEDB00369181 /* AudioBoxHelper.swift */,
 				BA09A51C1DDFEEE700369181 /* ContactStore.swift */,
+				BAD0D4821DEF07AD00E2BA09 /* ApiHelper.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -208,6 +218,24 @@
 				BA7986D31DE34FBC00F900C1 /* Extension+UIViewController.swift */,
 			);
 			name = Extension;
+			sourceTree = "<group>";
+		};
+		BAD0D47E1DEF05C100E2BA09 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BAD0D47F1DEF066300E2BA09 /* Fonts */,
+				BA09A50B1DDFED7E00369181 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BAD0D47F1DEF066300E2BA09 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				BAD0D4801DEF067A00E2BA09 /* fontawesome-webfont.ttf */,
+				BAD0D4811DEF067A00E2BA09 /* FontAwesome.otf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,6 +309,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAD0D4941DEF1D3600E2BA09 /* fontawesome-webfont.ttf in Resources */,
+				BAD0D4951DEF1D3600E2BA09 /* FontAwesome.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,10 +325,12 @@
 				BA7986F51DE3508C00F900C1 /* Extension+UINavigation.swift in Sources */,
 				BA7986EC1DE3508C00F900C1 /* Extension+Double.swift in Sources */,
 				BA09A51B1DDFEEDB00369181 /* AudioBoxHelper.swift in Sources */,
+				BA2C05DB1DF82E4600922EC4 /* LocationManager.swift in Sources */,
 				BA7986D51DE34FBC00F900C1 /* BaseInfo.swift in Sources */,
 				BA09A5171DDFEEA700369181 /* AVMediaManager.swift in Sources */,
 				BA7986EF1DE3508C00F900C1 /* Extension+UIBarButtonItem.swift in Sources */,
 				BA7986F81DE3508C00F900C1 /* Extension+UITextView.swift in Sources */,
+				BAD0D4831DEF07AD00E2BA09 /* ApiHelper.swift in Sources */,
 				BA09A5441DE1A75300369181 /* RegExpHelper.swift in Sources */,
 				BA7986F31DE3508C00F900C1 /* Extension+UIImageView.swift in Sources */,
 				BA7986F41DE3508C00F900C1 /* Extension+UILabel.swift in Sources */,
@@ -431,6 +463,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
@@ -446,11 +479,14 @@
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = ios.SnackKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos10.1;
 				SKIP_INSTALL = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -459,6 +495,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
@@ -474,10 +511,13 @@
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = ios.SnackKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos10.1;
 				SKIP_INSTALL = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Release;
 		};

@@ -29,7 +29,7 @@ public class AppErrorManager{
     
     let errorTitle = "Error"
     
-    public class var sharedInstance: AppErrorManager {
+    public class var shared: AppErrorManager {
         
         struct Static {
             static var instance: AppErrorManager? = nil

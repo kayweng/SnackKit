@@ -28,7 +28,7 @@ public class AVMediaManager : NSObject, IAVMediaManager, UIImagePickerController
     
     var accessorCallBack:((_ media:NSData?)->Void)?
     
-    class var sharedInstance: AVMediaManager {
+    class var shared: AVMediaManager {
         
         struct Static {
             static var instance: AVMediaManager? = nil

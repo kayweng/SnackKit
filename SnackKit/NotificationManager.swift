@@ -25,9 +25,7 @@ private let center = UNUserNotificationCenter.current()
 
 public class NotificationManager{
     
-    var permission:Bool?
-    
-    public class var sharedInstance: NotificationManager {
+    public class var shared: NotificationManager {
         
         struct Static {
             static var instance: NotificationManager? = nil

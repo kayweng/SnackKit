@@ -14,4 +14,6 @@ FOUNDATION_EXPORT double SnackKitVersionNumber;
 //! Project version string for SnackKit.
 FOUNDATION_EXPORT const unsigned char SnackKitVersionString[];
 
+FOUNDATION_EXPORT NSLocaleKey const NSLocaleTemperatureUnit;
+
 // In this header, you should import all the public headers of your framework using statements like #import <SnackKit/PublicHeader.h>

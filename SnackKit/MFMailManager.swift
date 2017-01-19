@@ -24,7 +24,7 @@ public class MFMailManager:NSObject, MFMailComposeViewControllerDelegate{
     var delegateController:UIViewController!
     var callBack:((_ status:String)->Void?)!
     
-    class var sharedInstance: MFMailManager {
+    class var shared: MFMailManager {
         
         struct Static {
             static var instance: MFMailManager? = nil
@@ -45,7 +45,7 @@ public class MFMailManager:NSObject, MFMailComposeViewControllerDelegate{
         self.mailComposerVC = MFMailComposeViewController()
     }
     
-    public func composeEmail(content:mailContent, in controller:UIViewController, completion:((_ status:String)->Void)?){
+    public func composeEmail(content:mailContent, forController controller:UIViewController, completion:((_ status:String)->Void)?){
      
         self.delegateController = controller
         

@@ -34,7 +34,7 @@ public class CoreDataManager: NSObject{
     
     public var store: AppCoreData!;
     
-    public class var sharedInstance : CoreDataManager{
+    public class var shared : CoreDataManager{
         
         struct Static {
             static var instance:CoreDataManager? = nil

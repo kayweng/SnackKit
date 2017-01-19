@@ -9,7 +9,7 @@
 import Foundation
 
 private let calendar = Calendar(identifier: Calendar.Identifier.gregorian)
-private let flags: NSCalendar.Unit = [.year, .month, .day]
+private let flags: NSCalendar.Unit = [.year, .month, .day, .hour, .minute, .second]
 
 // MARK: - NSDate
 extension Date
@@ -51,6 +51,14 @@ extension Date
         
         dateformatter.dateFormat = "dd MMM yyyy hh:mm ss a"
         dateformatter.timeZone = gmtTimeZone
+        
+        return dateformatter.string(from: self)
+    }
+    
+    public var dayName:String{
+
+        let dateformatter = DateFormatter()
+        dateformatter.dateFormat = "EEEE"
         
         return dateformatter.string(from: self)
     }

@@ -40,3 +40,41 @@ public enum UIUserInterfaceIdiom : Int
     case phone
     case pad
 }
+
+public enum TemperatureUnit:String{
+    case Celsius = "Celsius"
+    case Fahrenheit = "Fahrenheit"
+    
+    public var symbol:String{
+     
+        if self == TemperatureUnit.Celsius{
+            return "°C"
+        }else if self == TemperatureUnit.Fahrenheit{
+            return "°F"
+        }else{
+            return ""
+        }
+    }
+}
+
+public enum PartsOfDay:String{
+    
+    case Morning = "Morning"
+    case Afternoon = "Afternoon"
+    case Evening = "Evening"
+    case Night = "Night"
+
+}
+
+public enum DayOfWeek:String{
+    
+    case Sunday = "Sunday"
+    case Monday = "Monday"
+    case Tuesday = "Tuesday"
+    case Wednesday = "Wednesday"
+    case Thursday = "Thursday"
+    case Friday = "Friday"
+    case Saturday = "Saturday"
+}
+
+
