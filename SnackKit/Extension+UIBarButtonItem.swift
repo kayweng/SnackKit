@@ -12,7 +12,7 @@ import UIKit
 extension UIBarButtonItem{
     
     //Set Icon to BarButtonItem
-    public func setIcon(_ fa:fontawesome){
+    public func setFAIcon(_ fa:fontawesome){
         
         if let font = fontAwesome {
             self.setTitleTextAttributes([NSFontAttributeName: font], for: UIControlState())

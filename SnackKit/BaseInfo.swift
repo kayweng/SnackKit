@@ -13,7 +13,7 @@ public typealias ManagedObjectResult = Dictionary<String, AnyObject>
 public typealias DictionaryResult = [String : AnyObject]
 
 //@Global const variables
-public let appDelegate = UIApplication.shared.delegate
+public let delegate = UIApplication.shared.delegate
 public let sb: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
 public let systemVersion = UIDevice.current.systemVersion;
 

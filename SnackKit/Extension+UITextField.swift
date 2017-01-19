@@ -10,21 +10,21 @@ import UIKit
 
 extension UITextField{
     
-    public func returned(in controller:UIViewController, with:UIReturnKeyType = .done){
+    public func returnKey(in controller:UIViewController, type:UIReturnKeyType = .done){
         
         func dismissKeyboard(){
             controller.view.endEditing(true)
         }
         
-        self.returnKeyType = with
+        self.returnKeyType = type
         self.addTarget(controller, action: #selector(UIInputViewController.dismissKeyboard), for: UIControlEvents.editingDidEndOnExit)
     }
     
-    public func cleared(){
+    public func clear(){
         self.text? = ""
     }
     
-    public func decimalFormat(){
+    public func decimal(){
         
         if let text = self.text?.double{
             

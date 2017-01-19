@@ -12,7 +12,7 @@ import UIKit
 extension UIButton{
     
     //Set Button Icon
-    public func setIcon(_ fa:fontawesome, color:UIColor?, forState state: UIControlState){
+    public func setFAIcon(_ fa:fontawesome, color:UIColor?, forState state: UIControlState){
         
         if let font = fontAwesome {
             

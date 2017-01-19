@@ -10,7 +10,5 @@ import UIKit
 
 extension UICollectionView{
     
-    func setBackground(image imageFile:String){
-        self.backgroundView = UIImageView(image: UIImage(named:imageFile))
-    }
+    
 }

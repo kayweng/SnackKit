@@ -12,7 +12,7 @@ import UIKit
 // MARK: UILabel
 extension UILabel{
     
-    public func setIcon(_ fa:fontawesome, color:UIColor? = nil, size:CGFloat? = nil){
+    public func setFAIcon(_ fa:fontawesome, color:UIColor? = nil, size:CGFloat? = nil){
     
         if let font = fontAwesome {
             self.font = font
@@ -22,7 +22,7 @@ extension UILabel{
         }
     }
     
-    public func setIcon(_ fa:fontawesome, color:UIColor? = nil, bgColor:UIColor? = nil, border:(CGFloat,UIColor)?)
+    public func setFAIcon(_ fa:fontawesome, color:UIColor? = nil, bgColor:UIColor? = nil, border:(CGFloat,UIColor)?)
     {
         if let font = fontAwesome {
             self.font = font
@@ -40,14 +40,12 @@ extension UILabel{
     //Note, this method is merely highlight a label which end with *
     public func highlight(color:UIColor? = UIColor.orange){
         
-        if self.text!.substring(from: self.text!.characters.index(before: self.text!.endIndex)) == "*"{
-            
-            let newString = NSMutableAttributedString(string: self.text!)
-            
-            newString.addAttribute(NSForegroundColorAttributeName, value: color!, range: NSRange(location:self.text!.characters.count-1,length:1))
-            
-            self.attributedText = newString
-        }
+        let newString = NSMutableAttributedString(string: self.text!)
+        
+        newString.addAttribute(NSForegroundColorAttributeName, value: color!, range: NSRange(location:self.text!.characters.count-1,length:1))
+        
+        self.attributedText = newString
+
     }
     
     //Resize Label

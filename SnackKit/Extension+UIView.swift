@@ -84,21 +84,21 @@ extension UIView {
         self.layer.masksToBounds = true
     }
     
-    //TOUPDATE:
-    public func underlined(removeAt:CGFloat){
+    
+    public func removeUnderline(at width:CGFloat){
         
         if self.layer.sublayers?.count > 0 {
          
             for layer in self.layer.sublayers! {
                 
-                if layer.borderWidth == removeAt{
+                if layer.borderWidth == width{
                     layer.removeFromSuperlayer()
                 }
             }
         }
     }
     
-    public func cornered(rounding corners:UIRectCorner, size:CGSize? = CGSize(width: 10.0, height: 10.0) ){
+    public func corner(rounding corners:UIRectCorner, size:CGSize? = CGSize(width: 10.0, height: 10.0) ){
         
         let cornerBound:CGRect = CGRect(x: self.bounds.origin.x, y: self.bounds.origin.y, width: self.bounds.width, height: self.bounds.height)
         
@@ -111,7 +111,7 @@ extension UIView {
         
     }
 
-    public func circled(radius:CGFloat? = 0,color:UIColor = UIColor.darkGray, width:CGFloat = CGFloat(0.5)){
+    public func circle(radius:CGFloat? = 0,color:UIColor = UIColor.darkGray, width:CGFloat = CGFloat(0.5)){
         
         self.clipsToBounds = true
         self.layer.borderWidth = width
@@ -124,25 +124,25 @@ extension UIView {
         }
     }
     
-    public func gradientWith(colors:[AnyObject],at locations:[NSNumber]? = [0.1,1.0]){
+    public func addGradient(colors:[AnyObject],at locations:[NSNumber]? = [0.1,1.0]){
         
         if self.isKind(of: UICollectionView.self){
             let coll = self as! UICollectionView
             
             if coll.backgroundView == nil{
                 let vw = UIView(frame: self.frame)
-                vw.gradientLayersWith(colors: colors, at: locations)
+                vw.addGradientLayers(colors: colors, at: locations)
                 
                 coll.backgroundView = vw
                 sendSubview(toBack: vw)
                 
             }else{
-                self.gradientLayersWith(colors: colors, at: locations)
+                self.addGradientLayers(colors: colors, at: locations)
             }
         }
     }
     
-    public func gradientLayersWith(colors:[AnyObject],at locations:[NSNumber]? = [0.1,1.0]){
+    public func addGradientLayers(colors:[AnyObject],at locations:[NSNumber]? = [0.1,1.0]){
         
         let gradient: CAGradientLayer = CAGradientLayer()
     
