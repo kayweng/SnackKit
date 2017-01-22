@@ -5,10 +5,10 @@
 //  Created by kay weng on 19/11/2016.
 //  Copyright © 2016 snackcode.org. All rights reserved.
 //
+import Foundation
 import CoreData
 
-var gCoreData = "Model";
-var gCoreDataFileName = "Model.sqlite";
+public var gCoreDataFileName = ""
 
 public class AppCoreData: NSObject{
     
@@ -63,4 +63,5 @@ public class AppCoreData: NSObject{
         
         return coordinator
     }()
+    
 }

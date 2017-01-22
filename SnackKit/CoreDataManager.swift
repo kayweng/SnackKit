@@ -180,7 +180,7 @@ public class CoreDataManager: NSObject{
         return true
     }
     
-    public func deleteData(_ deletedObjects:[AnyObject], into context:NSManagedObjectContext) throws -> Bool{
+    public func deleteData(_ deletedObjects:[AnyObject], in context:NSManagedObjectContext) throws -> Bool{
         
         for object in deletedObjects as! [NSManagedObject]{
             context.delete(object)
@@ -295,7 +295,7 @@ public class CoreDataManager: NSObject{
         
     }
     
-    public func getEntityCount(_ entity:String, filter predicate:NSPredicate?, into context:NSManagedObjectContext)->Int{
+    public func getEntityCount(_ entity:String, filter predicate:NSPredicate?, in context:NSManagedObjectContext)->Int{
         
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
         
@@ -312,7 +312,7 @@ public class CoreDataManager: NSObject{
         return entity_description
     }
     
-    public func insertNewObject(forEntityName name:String, into context:NSManagedObjectContext)->AnyObject{
+    public func insertNewObject(forEntityName name:String, in context:NSManagedObjectContext)->AnyObject{
         
         let entity_description:AnyObject = NSEntityDescription.insertNewObject(forEntityName: name, into: context)
         
@@ -322,7 +322,7 @@ public class CoreDataManager: NSObject{
     //clone moc object
     public func clonedManagedObject(source:NSManagedObject,entity:String)->AnyObject{
         
-        let cloned:NSManagedObject = self.insertNewObject(forEntityName: entity, into: self.classContext!) as! NSManagedObject
+        let cloned:NSManagedObject = self.insertNewObject(forEntityName: entity, in: self.classContext!) as! NSManagedObject
         
         //Loop attributes, and clone values
         let attributes = source.entity.attributesByName as [String: NSAttributeDescription]

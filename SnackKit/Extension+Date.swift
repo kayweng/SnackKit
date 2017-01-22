@@ -36,6 +36,24 @@ extension Date
         return calendar.date(from: nowComponents)!
     }
     
+    public var today:Date{
+        
+        var nowComponents = DateComponents()
+        let date = Date()
+        let df = DateFormatter()
+        
+        df.dateFormat = "MM/dd/yyyy"
+        df.timeZone = gmtTimeZone
+        
+        nowComponents.year = (calendar as NSCalendar).component(NSCalendar.Unit.year, from: date)
+        nowComponents.month = (calendar as NSCalendar).component(NSCalendar.Unit.month, from: date)
+        nowComponents.day = (calendar as NSCalendar).component(NSCalendar.Unit.day, from: date)
+       
+        (nowComponents as NSDateComponents).timeZone = gmtTimeZone
+        
+        return calendar.date(from: nowComponents)!
+    }
+    
     public var defaultDate:Date{
         
         let df = DateFormatter()
@@ -109,6 +127,13 @@ extension Date
     public func equal(_ dateToCompare : Date) ->Bool
     {
         return self.compare(dateToCompare) == ComparisonResult.orderedSame
+    }
+    
+    public func differInMinutes(_ dateToCompare:Date)->Int{
+        
+        let elapsed = self.timeIntervalSince(dateToCompare)
+        
+        return Int(elapsed)
     }
     
     public func toISODate()->Date{
