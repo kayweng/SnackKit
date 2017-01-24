@@ -80,15 +80,16 @@ public class CoreDataManager: NSObject{
         return backgroundContext;
     }()
     
+    //Unit Object Context
     public lazy var classContext: NSManagedObjectContext? = {
         // Returns the managed object context for the application (which is already bound to the persistent store coordinator for the application.) This property is optional since there are legitimate error conditions that could cause the creation of the context to fail.
         let coordinator = self.store.persistentStoreCoordinator
         if coordinator == nil {
             return nil;
         }
-        var backgroundContext = NSManagedObjectContext(concurrencyType: NSManagedObjectContextConcurrencyType.privateQueueConcurrencyType);
-        backgroundContext.persistentStoreCoordinator = coordinator;
-        return backgroundContext;
+        var classContext = NSManagedObjectContext(concurrencyType: NSManagedObjectContextConcurrencyType.privateQueueConcurrencyType);
+        classContext.persistentStoreCoordinator = coordinator;
+        return classContext;
     }()
     
     //Save NSManagedObjectContext
@@ -115,6 +116,10 @@ public class CoreDataManager: NSObject{
     
     public func saveBackgroundContext () {
         _ = self.saveContext( self.backgroundContext! )
+    }
+    
+    public func saveClassContext () {
+        _ = self.saveContext( self.classContext! )
     }
     
     //Call back function by saveContext, support multi-thread
@@ -151,12 +156,14 @@ public class CoreDataManager: NSObject{
         
     }
     
+    //Rollback
     public func rollbackContext(_ context:NSManagedObjectContext){
         context.rollback()
     }
     
-    //delete data
+    //Delete Entity
     public func deleteEntity(_ name:String)->Bool{
+        
         let data = self.fetchData(entity: name)
         
         for obj:AnyObject in data!{
@@ -166,9 +173,9 @@ public class CoreDataManager: NSObject{
         return true
     }
     
-    public func deleteData(_ deletedObject:AnyObject)->Bool{
+    public func deleteData(_ objects:AnyObject)->Bool{
         
-        for record in deletedObject as! [NSManagedObject]{
+        for record in objects as! [NSManagedObject]{
             self.managedObjectContext?.delete(record)
         }
         
@@ -180,9 +187,9 @@ public class CoreDataManager: NSObject{
         return true
     }
     
-    public func deleteData(_ deletedObjects:[AnyObject], in context:NSManagedObjectContext) throws -> Bool{
+    public func deleteData(_ objects:[AnyObject], in context:NSManagedObjectContext) throws -> Bool{
         
-        for object in deletedObjects as! [NSManagedObject]{
+        for object in objects as! [NSManagedObject]{
             context.delete(object)
         }
         
@@ -196,7 +203,8 @@ public class CoreDataManager: NSObject{
     
     // MARK: - Fetching
     //Get Fetch data
-    public func fetchData(   entity      :   String,
+    public func fetchEntityData(  
+                            entity      :   String,
                             predicate   :   NSPredicate?=nil,
                             sorting     :   [NSSortDescriptor]?=nil,
                             properties  :   NSArray? = [],
@@ -234,10 +242,11 @@ public class CoreDataManager: NSObject{
             }
         }
         
-        return retval!
+        return retval
     }
     
-    public func fetchData(  context moc : NSManagedObjectContext,
+    public func fetchEntityData(  
+                            from context : NSManagedObjectContext,
                             entity     :   String,
                             predicate   :   NSPredicate?=nil,
                             sorting     :   [NSSortDescriptor]?=nil,
@@ -267,20 +276,16 @@ public class CoreDataManager: NSObject{
                     fetchRequest.propertiesToGroupBy = g as [AnyObject]
                 }
                 
-                retval = try! moc.fetch(fetchRequest) as! [DictionaryResult] as [AnyObject]?
+                retval = try! context.fetch(fetchRequest) as! [DictionaryResult] as [AnyObject]?
             }else{
                 
                 fetchRequest.resultType = NSFetchRequestResultType()
                 
-                retval = try! moc.fetch(fetchRequest) as! [NSManagedObject]
-            }
-            
-            guard let _ = retval else {
-                throw CoreDataError.ReadError
+                retval = try! context.fetch(fetchRequest) as! [NSManagedObject]
             }
         }
         
-        return retval!
+        return retval
     }
     
     
