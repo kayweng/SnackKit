@@ -14,7 +14,7 @@ public typealias JSONArray = Array<JSON>
 
 public class FileIOHelper{
     
-    public static func read(fileName:String, ofType: String)->JSONArray?{
+    public static func readJSONFile(fileName:String, ofType: String)->JSONArray?{
         
         guard fileName.isEmpty && ofType.isEmpty else {
         
@@ -38,18 +38,5 @@ public class FileIOHelper{
         }
         
         return nil
-    }
-    
-    static func writeFileData(fileName:String, ofType: String){
-        
-    }
-    
-    
-    static func copyFileData(fileName:String, ofType: String){
-        
-    }
-    
-    static func backupFileData(fileName:String, ofType: String){
-        
     }
 }
