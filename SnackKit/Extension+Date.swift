@@ -129,11 +129,11 @@ extension Date
         return self.compare(dateToCompare) == ComparisonResult.orderedSame
     }
     
-    public func differInMinutes(_ dateToCompare:Date)->Int{
+    public func elapsedInMinutes(_ dateToCompare:Date)->Int{
         
-        let elapsed = self.timeIntervalSince(dateToCompare)
+        let elapsed = dateToCompare.timeIntervalSince(self)
         
-        return Int(elapsed)
+        return Int(elapsed)/60
     }
     
     public func toISODate()->Date{
@@ -143,6 +143,15 @@ extension Date
         dateformatter.timeZone = gmtTimeZone
         
         return dateformatter.date(from: dateformatter.string(from: self))!
+    }
+    
+    public func toISODateString(_ format:String? = "MM/dd/yyyy")->String{
+        
+        let dateformatter:DateFormatter = DateFormatter()
+        dateformatter.dateFormat = format
+        dateformatter.timeZone = gmtTimeZone
+        
+        return dateformatter.string(from: self)
     }
 
     public func era()->Int{

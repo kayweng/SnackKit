@@ -164,7 +164,7 @@ public class CoreDataManager: NSObject{
     //Delete Entity
     public func deleteEntity(_ name:String)->Bool{
         
-        let data = self.fetchData(entity: name)
+        let data = self.fetchEntityData(entity: name)
         
         for obj:AnyObject in data!{
             self.managedObjectContext?.delete(obj as! NSManagedObject)

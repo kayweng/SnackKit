@@ -36,7 +36,6 @@ public class LocationManager: NSObject, CLLocationManagerDelegate{
         self.currentLocation = nil
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.requestAlwaysAuthorization()
-        self.locationManager.requestWhenInUseAuthorization()
     }
     
     internal func startUpdating(){
@@ -63,7 +62,7 @@ public class LocationManager: NSObject, CLLocationManagerDelegate{
         
         let coder = CLGeocoder()
         
-        if CLLocationManager.locationServicesEnabled(){
+        if CLLocationManager.locationServicesEnabled() && self.GetLocationAuthorizationStatus(prompt:true).0{
             
             self.locationManager.delegate = self
             self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
@@ -83,13 +82,35 @@ public class LocationManager: NSObject, CLLocationManagerDelegate{
                     completion!(placeMark.addressDictionary as! JSONDictionary)
                 }
             })
-            
-        }else{
-            print("Location Service Disabled !")
         }
     }
     
-    // MARK : - Delegate
+    public func GetLocationAuthorizationStatus(prompt:Bool)->(status:Bool,description:String){
+        
+        if !CLLocationManager.locationServicesEnabled(){
+            return (false,"Location Service is disabled")
+        }
+        
+        switch(CLLocationManager.authorizationStatus()) {
+        case .notDetermined:
+            
+            if prompt{
+                self.locationManager.requestAlwaysAuthorization()
+            }
+            
+            return (false,"Location Access is not determined")
+        case .restricted:
+            return (false,"Location Access Restricted")
+        case .denied:
+            return (false,"Location Access Denied")
+        case .authorizedAlways:
+            return (true,"Location Access is always using in the app & background")
+        case .authorizedWhenInUse:
+            return (true,"Location Access is using while in the app")
+        }
+    }
+    
+    // MARK: - Delegate
     public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         let userLocation:CLLocation = locations.last!
@@ -101,4 +122,5 @@ public class LocationManager: NSObject, CLLocationManagerDelegate{
             self.stopUpdating()
         }
     }
+    
 }

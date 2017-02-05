@@ -42,6 +42,7 @@ public enum UIUserInterfaceIdiom : Int
 }
 
 public enum TemperatureUnit:String{
+    
     case Celsius = "Celsius"
     case Fahrenheit = "Fahrenheit"
     
@@ -76,5 +77,4 @@ public enum DayOfWeek:String{
     case Friday = "Friday"
     case Saturday = "Saturday"
 }
-
 
