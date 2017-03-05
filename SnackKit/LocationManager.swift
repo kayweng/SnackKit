@@ -14,7 +14,7 @@ public typealias GeoLocation = (latitude:CLLocationDegrees, longitude:CLLocation
 
 public class LocationManager: NSObject, CLLocationManagerDelegate{
     
-    private let locationManager = CLLocationManager()
+    public let locationManager = CLLocationManager()
     private var currentLocation:GeoLocation?
     var accessorCallBack:((_ location:GeoLocation)->Void)?
     
@@ -32,8 +32,11 @@ public class LocationManager: NSObject, CLLocationManagerDelegate{
     }
     
     override init() {
+        super.init()
         
         self.currentLocation = nil
+        
+        self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.requestAlwaysAuthorization()
     }
