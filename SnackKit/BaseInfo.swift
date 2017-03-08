@@ -51,6 +51,11 @@ public struct ScreenSize
     public static let SCREEN_HEIGHT = UIScreen.main.bounds.size.height
     public static let SCREEN_MAX_LENGTH = max(ScreenSize.SCREEN_WIDTH, ScreenSize.SCREEN_HEIGHT)
     public static let SCREEN_MIN_LENGTH = min(ScreenSize.SCREEN_WIDTH, ScreenSize.SCREEN_HEIGHT)
+    
+    public static func GetScreenWidth(in percentage:Double) -> CGFloat{
+        
+        return CGFloat(ScreenSize.SCREEN_WIDTH * CGFloat(percentage/100))
+    }
 }
 
 //@Device Type

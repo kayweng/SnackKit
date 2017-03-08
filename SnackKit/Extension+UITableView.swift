@@ -106,4 +106,7 @@ extension UITableView {
         self.backgroundView = UIImageView(image: UIImage(named:imageFile)!)
     }
 
+    public func defaultCellHeight()->CGFloat{
+        return CGFloat(44.0)
+    }
 }
