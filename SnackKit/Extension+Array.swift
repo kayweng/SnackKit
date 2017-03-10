@@ -11,10 +11,13 @@ import Foundation
 // MARK: - Array
 extension Array where Element : Equatable {
     
-    public mutating func remove(_ object: Element) {
+    public mutating func remove(_ member: Element) -> Element? {
         
-        if let index = self.index(of: object) {
+        if let index = self.index(of: member) {
             self.remove(at: index)
+            return member
         }
+        
+        return nil
     }
 }
