@@ -1,28 +1,4 @@
 # SnackKit 
-A custom iOS framework kit which consist of much extensions of UI control, independent components and generic variables and 
-enums,etc.
-
-#Modules:
-coming soon ...
-
-#Extensions:
-1. Extension+Array
-2. Extension+Date
-3. Extension+Double
-4. Extension+Integer
-5. Extension+String
-6. Extension+UIBarButtonItem
-7. Extension+UIButton
-8. Extension+UICollectionView
-9. Extension+UIColor
-10. Extension+UIImageView
-11. Extension+UILabel
-12. Extension+UINavgiation
-13. Extension+UITableView
-14. Extension+UITextField
-15. Extension+UITextView
-16. Extension+UIView
-17. Extension+UIViewController
 
 #License
 Copyright 2017 @SnackCode
