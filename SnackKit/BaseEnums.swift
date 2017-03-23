@@ -1,5 +1,4 @@
 //
-//  Enums.swift
 //  SnackBase
 //
 //  Created by kay weng on 18/11/2016.
@@ -10,18 +9,10 @@ import Foundation
 
 public enum TableAction:String
 {
-    case Insert = "Insert"
-    case Update = "Update"
-    case Delete = "Delete"
-    case Move   = "Move"
-}
-
-public enum AccessMode:String
-{
-    case New = "NEW"
-    case Edit = "EDIT"
-    case Delete = "DELETE"
-    case View = "VIEW"
+    case Insert
+    case Update
+    case Delete
+    case Move
 }
 
 public enum EntityContextError:Error
@@ -56,6 +47,17 @@ public enum TemperatureUnit:String{
             return ""
         }
     }
+    
+    public var metric:String{
+        
+        if self == TemperatureUnit.Celsius{
+            return "C"
+        }else if self == TemperatureUnit.Fahrenheit{
+            return "F"
+        }else{
+            return ""
+        }
+    }
 }
 
 public enum PartsOfDay:String{
@@ -69,12 +71,12 @@ public enum PartsOfDay:String{
 
 public enum DayOfWeek:String{
     
-    case Sunday = "Sunday"
-    case Monday = "Monday"
-    case Tuesday = "Tuesday"
-    case Wednesday = "Wednesday"
-    case Thursday = "Thursday"
-    case Friday = "Friday"
-    case Saturday = "Saturday"
+    case Sunday
+    case Monday
+    case Tuesday
+    case Wednesday
+    case Thursday
+    case Friday
+    case Saturday
 }
 

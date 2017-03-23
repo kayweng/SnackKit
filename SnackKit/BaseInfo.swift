@@ -20,18 +20,34 @@ public let gmtTimeZone = TimeZone(abbreviation: NSTimeZone.local.abbreviation()!
 public let utcTimeZone = TimeZone(abbreviation: NSTimeZone.default.abbreviation()!)
 
 //@Locale
-public struct AppLocale
+public struct DeviceLocale
 {
-    public static let countryCode = (Locale.current as NSLocale).object(forKey: NSLocale.Key.countryCode) as! String
-    public static let countryName = (Locale.current as NSLocale).displayName(forKey: NSLocale.Key.countryCode, value: countryCode)
-    public static let currency = (Locale.current as NSLocale).object(forKey: NSLocale.Key.currencyCode)  as! String
-    public static let symbol = (Locale.current as NSLocale).object(forKey: NSLocale.Key.currencySymbol) as! String
+    public static var countryCode:String{
+        return (Locale.current as NSLocale).object(forKey: NSLocale.Key.countryCode) as! String
+    }
+    
+    public static var countryName:String{
+        return (Locale.current as NSLocale).displayName(forKey: NSLocale.Key.countryCode, value: countryCode)!
+    }
+    
+    public static var currency:String{
+        return (Locale.current as NSLocale).object(forKey: NSLocale.Key.currencyCode) as! String
+    }
+    
+    public static var symbol:String{
+        return (Locale.current as NSLocale).object(forKey: NSLocale.Key.currencySymbol) as! String
+    }
 }
 
-public struct AppRegion
+public struct DeviceRegion
 {
-    public static let isMetric = (Locale.current as NSLocale).object(forKey: NSLocale.Key.usesMetricSystem) as! Bool
-    public static let temperateUnit = (Locale.current as NSLocale).object(forKey: NSLocale.Key.temperatureUnit) as! String
+    public static var isMetric:String{
+        return (Locale.current as NSLocale).object(forKey: NSLocale.Key.usesMetricSystem) as! String
+    }
+    
+    public static var temperateUnit:String{
+        return (Locale.current as NSLocale).object(forKey: NSLocale.Key.temperatureUnit) as! String
+    }
 }
 
 

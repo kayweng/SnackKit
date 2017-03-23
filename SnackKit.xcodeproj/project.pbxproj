@@ -34,15 +34,11 @@
 		BA7986EA1DE3508C00F900C1 /* Extension+Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7986DB1DE3508C00F900C1 /* Extension+Array.swift */; };
 		BA7986EB1DE3508C00F900C1 /* Extension+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7986DC1DE3508C00F900C1 /* Extension+Date.swift */; };
 		BA7986EC1DE3508C00F900C1 /* Extension+Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7986DD1DE3508C00F900C1 /* Extension+Double.swift */; };
-		BA7986ED1DE3508C00F900C1 /* Extension+Integer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7986DE1DE3508C00F900C1 /* Extension+Integer.swift */; };
 		BA7986EE1DE3508C00F900C1 /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7986DF1DE3508C00F900C1 /* Extension+String.swift */; };
 		BA7986EF1DE3508C00F900C1 /* Extension+UIBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7986E01DE3508C00F900C1 /* Extension+UIBarButtonItem.swift */; };
 		BA7986F01DE3508C00F900C1 /* Extension+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7986E11DE3508C00F900C1 /* Extension+UIButton.swift */; };
-		BA7986F11DE3508C00F900C1 /* Extension+UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7986E21DE3508C00F900C1 /* Extension+UICollectionView.swift */; };
 		BA7986F21DE3508C00F900C1 /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7986E31DE3508C00F900C1 /* Extension+UIColor.swift */; };
-		BA7986F31DE3508C00F900C1 /* Extension+UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7986E41DE3508C00F900C1 /* Extension+UIImageView.swift */; };
 		BA7986F41DE3508C00F900C1 /* Extension+UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7986E51DE3508C00F900C1 /* Extension+UILabel.swift */; };
-		BA7986F51DE3508C00F900C1 /* Extension+UINavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7986E61DE3508C00F900C1 /* Extension+UINavigation.swift */; };
 		BA7986F61DE3508C00F900C1 /* Extension+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7986E71DE3508C00F900C1 /* Extension+UITableView.swift */; };
 		BA7986F71DE3508C00F900C1 /* Extension+UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7986E81DE3508C00F900C1 /* Extension+UITextField.swift */; };
 		BA7986F81DE3508C00F900C1 /* Extension+UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7986E91DE3508C00F900C1 /* Extension+UITextView.swift */; };
@@ -83,15 +79,11 @@
 		BA7986DB1DE3508C00F900C1 /* Extension+Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+Array.swift"; sourceTree = "<group>"; };
 		BA7986DC1DE3508C00F900C1 /* Extension+Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+Date.swift"; sourceTree = "<group>"; };
 		BA7986DD1DE3508C00F900C1 /* Extension+Double.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+Double.swift"; sourceTree = "<group>"; };
-		BA7986DE1DE3508C00F900C1 /* Extension+Integer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+Integer.swift"; sourceTree = "<group>"; };
 		BA7986DF1DE3508C00F900C1 /* Extension+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+String.swift"; sourceTree = "<group>"; };
 		BA7986E01DE3508C00F900C1 /* Extension+UIBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+UIBarButtonItem.swift"; sourceTree = "<group>"; };
 		BA7986E11DE3508C00F900C1 /* Extension+UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+UIButton.swift"; sourceTree = "<group>"; };
-		BA7986E21DE3508C00F900C1 /* Extension+UICollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+UICollectionView.swift"; sourceTree = "<group>"; };
 		BA7986E31DE3508C00F900C1 /* Extension+UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
-		BA7986E41DE3508C00F900C1 /* Extension+UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+UIImageView.swift"; sourceTree = "<group>"; };
 		BA7986E51DE3508C00F900C1 /* Extension+UILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+UILabel.swift"; sourceTree = "<group>"; };
-		BA7986E61DE3508C00F900C1 /* Extension+UINavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+UINavigation.swift"; sourceTree = "<group>"; };
 		BA7986E71DE3508C00F900C1 /* Extension+UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+UITableView.swift"; sourceTree = "<group>"; };
 		BA7986E81DE3508C00F900C1 /* Extension+UITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+UITextField.swift"; sourceTree = "<group>"; };
 		BA7986E91DE3508C00F900C1 /* Extension+UITextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+UITextView.swift"; sourceTree = "<group>"; };
@@ -205,15 +197,11 @@
 				BA7986DB1DE3508C00F900C1 /* Extension+Array.swift */,
 				BA7986DC1DE3508C00F900C1 /* Extension+Date.swift */,
 				BA7986DD1DE3508C00F900C1 /* Extension+Double.swift */,
-				BA7986DE1DE3508C00F900C1 /* Extension+Integer.swift */,
 				BA7986DF1DE3508C00F900C1 /* Extension+String.swift */,
 				BA7986E01DE3508C00F900C1 /* Extension+UIBarButtonItem.swift */,
 				BA7986E11DE3508C00F900C1 /* Extension+UIButton.swift */,
-				BA7986E21DE3508C00F900C1 /* Extension+UICollectionView.swift */,
 				BA7986E31DE3508C00F900C1 /* Extension+UIColor.swift */,
-				BA7986E41DE3508C00F900C1 /* Extension+UIImageView.swift */,
 				BA7986E51DE3508C00F900C1 /* Extension+UILabel.swift */,
-				BA7986E61DE3508C00F900C1 /* Extension+UINavigation.swift */,
 				BA7986E71DE3508C00F900C1 /* Extension+UITableView.swift */,
 				BA7986E81DE3508C00F900C1 /* Extension+UITextField.swift */,
 				BA7986E91DE3508C00F900C1 /* Extension+UITextView.swift */,
@@ -342,7 +330,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA7986EE1DE3508C00F900C1 /* Extension+String.swift in Sources */,
-				BA7986F51DE3508C00F900C1 /* Extension+UINavigation.swift in Sources */,
 				BA7986EC1DE3508C00F900C1 /* Extension+Double.swift in Sources */,
 				BA09A51B1DDFEEDB00369181 /* AudioBoxHelper.swift in Sources */,
 				BA2C05DB1DF82E4600922EC4 /* LocationManager.swift in Sources */,
@@ -352,11 +339,9 @@
 				BA7986F81DE3508C00F900C1 /* Extension+UITextView.swift in Sources */,
 				BAD0D4831DEF07AD00E2BA09 /* ApiHelper.swift in Sources */,
 				BA09A5441DE1A75300369181 /* RegExpHelper.swift in Sources */,
-				BA7986F31DE3508C00F900C1 /* Extension+UIImageView.swift in Sources */,
 				BA7986F41DE3508C00F900C1 /* Extension+UILabel.swift in Sources */,
 				BA09A5151DDFEE9C00369181 /* NotificationManager.swift in Sources */,
 				BA7986EB1DE3508C00F900C1 /* Extension+Date.swift in Sources */,
-				BA7986F11DE3508C00F900C1 /* Extension+UICollectionView.swift in Sources */,
 				BA09A5411DE197D600369181 /* AppErrorManager.swift in Sources */,
 				BA09A51D1DDFEEE700369181 /* ContactStore.swift in Sources */,
 				BA7986F01DE3508C00F900C1 /* Extension+UIButton.swift in Sources */,
@@ -372,7 +357,6 @@
 				BA09A5191DDFEECB00369181 /* MFMailManager.swift in Sources */,
 				BA4FC4C81E62FC5600ECDC6C /* NetworkHelper.swift in Sources */,
 				BA7986D71DE34FBC00F900C1 /* Extension+UIView.swift in Sources */,
-				BA7986ED1DE3508C00F900C1 /* Extension+Integer.swift in Sources */,
 				BA7986F21DE3508C00F900C1 /* Extension+UIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

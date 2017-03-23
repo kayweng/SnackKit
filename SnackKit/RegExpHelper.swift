@@ -34,18 +34,10 @@ public class RegExpHelper {
     
     public static func testMaxlength(_ input:String,max:Int) -> Bool{
         
-        func indexOf(_ input:String, findString:String)->Int{
-            if let range = input.range(of: findString){
-                return input.characters.distance(from: input.startIndex, to: range.lowerBound)
-            }
-            
-            return 0
-        }
-        
-        let index = input.characters.index(input.startIndex, offsetBy: indexOf(input, findString: "."))
+        let index = input.characters.index(input.startIndex, offsetBy: input.indexOf("."))
         let newInput = input.substring(to: index) == "" ? input:input.substring(to: index)
         
-        let maxexp =  RegExp.Maxlength.rawValue.replacingOccurrences(of: "MAXLENGTH", with: "\(10)")
+        let maxexp =  RegExp.Maxlength.rawValue.replacingOccurrences(of: "MAXLENGTH", with: "\(max)")
         
         let internalExpression: NSRegularExpression  = try! NSRegularExpression(pattern: maxexp, options: .caseInsensitive)
         

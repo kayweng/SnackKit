@@ -19,11 +19,7 @@ extension Date
         
         var nowComponents = DateComponents()
         let date = Date()
-        let df = DateFormatter()
         
-        df.dateFormat = "yyyy-MM-dd h:mm:ss a"
-        df.timeZone = gmtTimeZone
-
         nowComponents.year = (calendar as NSCalendar).component(NSCalendar.Unit.year, from: date)
         nowComponents.month = (calendar as NSCalendar).component(NSCalendar.Unit.month, from: date)
         nowComponents.day = (calendar as NSCalendar).component(NSCalendar.Unit.day, from: date)
@@ -40,10 +36,6 @@ extension Date
         
         var nowComponents = DateComponents()
         let date = Date()
-        let df = DateFormatter()
-        
-        df.dateFormat = "MM/dd/yyyy"
-        df.timeZone = gmtTimeZone
         
         nowComponents.year = (calendar as NSCalendar).component(NSCalendar.Unit.year, from: date)
         nowComponents.month = (calendar as NSCalendar).component(NSCalendar.Unit.month, from: date)
@@ -52,15 +44,6 @@ extension Date
         (nowComponents as NSDateComponents).timeZone = gmtTimeZone
         
         return calendar.date(from: nowComponents)!
-    }
-    
-    public var defaultDate:Date{
-        
-        let df = DateFormatter()
-        df.dateFormat = "yyyy-MM-dd h:mm:ss a"
-        df.timeZone = gmtTimeZone
-        
-        return df.date(from: "01/01/1990")!
     }
     
     public var toString:String{
@@ -129,7 +112,7 @@ extension Date
         return self.compare(dateToCompare) == ComparisonResult.orderedSame
     }
     
-    public func elapsedInMinutes(_ dateToCompare:Date)->Int{
+    public func elapsedMinuteFrom(_ dateToCompare:Date)->Int{
         
         let elapsed = dateToCompare.timeIntervalSince(self)
         
@@ -139,13 +122,13 @@ extension Date
     public func toISODate()->Date{
         
         let dateformatter:DateFormatter = DateFormatter()
-        dateformatter.dateFormat = "MM/dd/yyyy"
+        dateformatter.dateFormat = "yyyy-MM-dd"
         dateformatter.timeZone = gmtTimeZone
         
         return dateformatter.date(from: dateformatter.string(from: self))!
     }
     
-    public func toISODateString(_ format:String? = "MM/dd/yyyy")->String{
+    public func toISODateString(_ format:String? = "yyyy-MM-dd")->String{
         
         let dateformatter:DateFormatter = DateFormatter()
         dateformatter.dateFormat = format
