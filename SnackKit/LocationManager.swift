@@ -49,26 +49,14 @@ public class LocationManager: NSObject, CLLocationManagerDelegate{
         self.locationManager.stopUpdatingLocation()
     }
     
-    public func GetCurrentLocation(completion:((_ location:GeoLocation)->Void)?){
-        
-        if CLLocationManager.locationServicesEnabled(){
-            self.locationManager.delegate = self
-            self.startUpdating()
-        }else{
-            print("Location Service Disabled !")
-        }
-        
-        self.accessorCallBack = completion
-    }
-    
-    public func GetNearestCity(completion:((_ location:JSONDictionary)->Void)?){
+    public func GetCurrentLocation(completion:((_ location:JSONDictionary)->Void)?){
         
         let coder = CLGeocoder()
         
         if CLLocationManager.locationServicesEnabled() && self.GetLocationAuthorizationStatus(prompt:true).0{
             
             self.locationManager.delegate = self
-            self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
             self.startUpdating()
             
             coder.reverseGeocodeLocation(locationManager.location!, completionHandler: { (placemarks, error) in
