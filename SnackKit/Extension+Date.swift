@@ -8,7 +8,7 @@
 
 import Foundation
 
-private let calendar = Calendar(identifier: Calendar.Identifier.gregorian)
+private let calendar = NSCalendar.autoupdatingCurrent //Calendar(identifier: Calendar.Identifier.gregorian)
 private let flags: NSCalendar.Unit = [.year, .month, .day, .hour, .minute, .second]
 
 // MARK: - NSDate
@@ -32,30 +32,6 @@ extension Date
         return calendar.date(from: nowComponents)!
     }
     
-    public var today:Date{
-        
-        var nowComponents = DateComponents()
-        let date = Date()
-        
-        nowComponents.year = (calendar as NSCalendar).component(NSCalendar.Unit.year, from: date)
-        nowComponents.month = (calendar as NSCalendar).component(NSCalendar.Unit.month, from: date)
-        nowComponents.day = (calendar as NSCalendar).component(NSCalendar.Unit.day, from: date)
-       
-        (nowComponents as NSDateComponents).timeZone = gmtTimeZone
-        
-        return calendar.date(from: nowComponents)!
-    }
-    
-    public var toString:String{
-        
-        let dateformatter = DateFormatter()
-        
-        dateformatter.dateFormat = "dd MMM yyyy hh:mm ss a"
-        dateformatter.timeZone = gmtTimeZone
-        
-        return dateformatter.string(from: self)
-    }
-    
     public var dayName:String{
 
         let dateformatter = DateFormatter()
@@ -67,32 +43,32 @@ extension Date
     // MARK: - Methods
     public func add(years:Int)->Date{
         
-        return (calendar as NSCalendar).date(byAdding: NSCalendar.Unit.year, value: years, to: self, options: NSCalendar.Options.wrapComponents)!
+        return (calendar as NSCalendar).date(byAdding: NSCalendar.Unit.year, value: years, to: self)!
     }
     
     public func add(months:Int)->Date{
         
-        return (calendar as NSCalendar).date(byAdding: NSCalendar.Unit.month, value: months, to: self, options: NSCalendar.Options.wrapComponents)!
+        return (calendar as NSCalendar).date(byAdding: NSCalendar.Unit.month, value: months, to: self)!
     }
     
     public func add(days:Int)->Date{
         
-        return (calendar as NSCalendar).date(byAdding: NSCalendar.Unit.day, value: days, to: self, options: NSCalendar.Options.wrapComponents)!
+        return (calendar as NSCalendar).date(byAdding: NSCalendar.Unit.day, value: days, to: self)!
     }
     
     public func add(hours:Int)->Date{
         
-        return (calendar as NSCalendar).date(byAdding: NSCalendar.Unit.hour, value: hours, to: self, options: NSCalendar.Options.wrapComponents)!
+        return (calendar as NSCalendar).date(byAdding: NSCalendar.Unit.hour, value: hours, to: self)!
     }
     
     public func add(minutes:Int)->Date{
         
-        return (calendar as NSCalendar).date(byAdding: NSCalendar.Unit.minute, value: minutes, to: self, options: NSCalendar.Options.wrapComponents)!
+        return (calendar as NSCalendar).date(byAdding: NSCalendar.Unit.minute, value: minutes, to: self)!
     }
     
     public func add(seconds:Int)->Date{
         
-        return (calendar as NSCalendar).date(byAdding: NSCalendar.Unit.second, value: seconds, to: self, options: NSCalendar.Options.wrapComponents)!
+        return (calendar as NSCalendar).date(byAdding: NSCalendar.Unit.second, value: seconds, to: self)!
     }
     
     public func greaterThan(_ dateToCompare : Date) ->Bool
@@ -119,16 +95,17 @@ extension Date
         return Int(elapsed)/60
     }
     
-    public func toISODate()->Date{
+    public var localString:String{
         
-        let dateformatter:DateFormatter = DateFormatter()
-        dateformatter.dateFormat = "yyyy-MM-dd"
+        let dateformatter = DateFormatter()
+        
+        dateformatter.dateFormat = "dd MMM yyyy hh:mm ss a"
         dateformatter.timeZone = gmtTimeZone
         
-        return dateformatter.date(from: dateformatter.string(from: self))!
+        return dateformatter.string(from: self)
     }
-    
-    public func toISODateString(_ format:String? = "yyyy-MM-dd")->String{
+
+    public func toLocalString(_ format:String? = "yyyy-MM-dd")->String{
         
         let dateformatter:DateFormatter = DateFormatter()
         dateformatter.dateFormat = format
@@ -136,7 +113,7 @@ extension Date
         
         return dateformatter.string(from: self)
     }
-
+    
     public func era()->Int{
         return (calendar as NSCalendar).components(flags, from: self).era!
     }
