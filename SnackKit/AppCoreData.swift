@@ -55,7 +55,7 @@ public class AppCoreData: NSObject{
             dict[NSUnderlyingErrorKey] = error
             error = NSError(domain: "PERSISTENT STORE", code: 9999, userInfo: dict)
             
-            NSLog("Unresolved error \(error), \(error!.userInfo)")
+            NSLog("Unresolved error \(String(describing: error)), \(error!.userInfo)")
             abort()
         } catch {
             fatalError()

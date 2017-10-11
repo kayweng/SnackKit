@@ -64,7 +64,7 @@ public class LocationManager: NSObject, CLLocationManagerDelegate{
                 self.stopUpdating()
                 
                 if let _ = error {
-                    print("Error getting location:\(error)")
+                    print("Error getting location:\(String(describing: error))")
                 }else{
                     let placeArray = placemarks as [CLPlacemark]!
                     var placeMark: CLPlacemark!
