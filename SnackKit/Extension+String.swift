@@ -127,8 +127,8 @@ extension String {
         
         let dateformatter = DateFormatter()
         
-        dateformatter.dateFormat = "dd MMM yyyy hh:mm:ss a"
-        dateformatter.timeZone = TimeZone(abbreviation: NSTimeZone.local.abbreviation()!)
+        dateformatter.dateFormat = "dd/MM/yyyy hh:mm:ss a"
+        dateformatter.timeZone = NSTimeZone.local
         
         return dateformatter.date(from: self)
     }

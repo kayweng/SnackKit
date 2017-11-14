@@ -95,6 +95,13 @@ extension Date
         return Int(elapsed)/60
     }
     
+    public func elapsedHourFrom(_ dateToCompare:Date)->Int{
+     
+        let elapsed = dateToCompare.timeIntervalSince(self)
+        
+        return Int(elapsed)/60/60
+    }
+    
     public var localString:String{
         
         let dateformatter = DateFormatter()
