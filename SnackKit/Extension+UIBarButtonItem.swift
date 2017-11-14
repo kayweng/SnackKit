@@ -15,7 +15,7 @@ extension UIBarButtonItem{
     public func setFAIcon(_ fa:fontawesome){
         
         if let font = fontAwesome {
-            self.setTitleTextAttributes([NSFontAttributeName: font], for: UIControlState())
+            self.setTitleTextAttributes([NSAttributedStringKey.font: font], for: UIControlState())
             self.title = fa.text
         }
     }

@@ -34,7 +34,7 @@ extension UITextView{
     public func normal(_ text:String, size:CGFloat? = nil){
         
         let txt = self.text == text ? self.text : text
-        let attrs:DictionaryResult = [NSFontAttributeName : UIFont.systemFont(ofSize: size ?? self.font!.pointSize)]
+        let attrs = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: size ?? self.font!.pointSize)]
         let normalString = NSMutableAttributedString(string: txt!, attributes: attrs)
         
         self.attributedText = normalString
@@ -48,12 +48,12 @@ extension UITextView{
             
             for txt in rangeText!{
                 
-                attributedText.addAttributes([NSFontAttributeName: UIFont.boldSystemFont(ofSize: size!)], range: (text as NSString).range(of: txt))
+                attributedText.addAttributes([NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: size!)], range: (text as NSString).range(of: txt))
             }
             
         }else{
             
-            attributedText.addAttributes([NSFontAttributeName: UIFont.boldSystemFont(ofSize: size!)], range: (text as NSString).range(of: text))
+            attributedText.addAttributes([NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: size!)], range: (text as NSString).range(of: text))
         }
         
         self.textAlignment = alignment!
