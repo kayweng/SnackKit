@@ -89,7 +89,7 @@ extension String {
     public func indexOf(_ findString:String)->Int{
         
         if let range = self.range(of: findString){
-            return self.characters.distance(from: self.startIndex, to: range.lowerBound)
+            return self.distance(from: self.startIndex, to: range.lowerBound)
         }
        
         return 0
@@ -97,8 +97,11 @@ extension String {
     
     public mutating func append(_ input:String,range:NSRange){
         
-        let index = self.characters.index(self.startIndex, offsetBy: range.location)
-        self = self.substring(to: index) + input + self.substring(from: index)
+        let index = self.index(self.startIndex, offsetBy: range.location)
+        
+        self = self[index..<endIndex] + input + self[startIndex..<index]
+        
+        //self = self.substring(to: index) + input + self.substring(from: index)
     }
     
     public func replaceOf(_ patternString:String, with:String)->String{
@@ -107,7 +110,9 @@ extension String {
     }
     
     subscript (i: Int) -> Character {
-        return self[self.characters.index(self.startIndex, offsetBy: i)]
+       
+        let start = index(startIndex, offsetBy: 1)
+        return Character(String(self[start ..< endIndex]))
     }
     
     subscript (i: Int) -> String {
@@ -116,8 +121,8 @@ extension String {
     
     subscript (r: Range<Int>) -> String {
         
-        let start = characters.index(startIndex, offsetBy: r.lowerBound)
-        let end = characters.index(start, offsetBy: r.upperBound - r.lowerBound)
+        let start = index(startIndex, offsetBy: r.lowerBound)
+        let end = index(start, offsetBy: r.upperBound - r.lowerBound)
 
         return String(self[Range(start ..< end)])
      }

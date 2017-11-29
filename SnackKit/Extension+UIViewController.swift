@@ -21,7 +21,7 @@ extension UIViewController{
         
         //UITextField
         if let obj = target as? UITextField {
-            if obj.text!.characters.count == 0 {
+            if obj.text!.count == 0 {
                 
                 if let o = obj.placeholder{
                     mandatory_message = o + " is mandatory!";

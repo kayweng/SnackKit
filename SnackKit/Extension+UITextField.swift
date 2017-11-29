@@ -38,7 +38,7 @@ extension UITextField{
     
     public func normal(_ text:String? = "", size:CGFloat? = nil){
         
-        let txt = text!.characters.count > 0 ? text : self.text!
+        let txt = text!.count > 0 ? text : self.text!
         let attrs = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: size ?? self.font!.pointSize)]
         let normalString = NSMutableAttributedString(string: txt!, attributes: attrs)
         
@@ -47,7 +47,7 @@ extension UITextField{
     
     public func bold(_ text:String? = "", size:CGFloat? = nil){
         
-        let txt = text!.characters.count > 0 ? text : self.text!
+        let txt = text!.count > 0 ? text : self.text!
         let attrs = [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: size ?? self.font!.pointSize)]
         let boldString = NSMutableAttributedString(string: txt!, attributes: attrs)
         
@@ -56,7 +56,7 @@ extension UITextField{
     
     public func italic(_ text:String? = "", size:CGFloat? = nil){
         
-        let txt = text!.characters.count > 0 ? text : self.text!
+        let txt = text!.count > 0 ? text : self.text!
         let attrs = [NSAttributedStringKey.font: UIFont.italicSystemFont(ofSize: size ?? self.font!.pointSize)]
         let italicString = NSMutableAttributedString(string: txt!, attributes: attrs)
         

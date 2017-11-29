@@ -8,35 +8,32 @@
 
 import Foundation
 
-public typealias JSON = AnyObject
+public typealias JSON = [String: Any]
 public typealias JSONDictionary = Dictionary<String,AnyObject>
 public typealias JSONArray = Array<JSON>
 
 public class FileIOHelper{
     
-    public static func readJSONFile(fileName:String, ofType: String)->JSONArray?{
+    public static func readJSONFile(name fileName:String,type: String)->JSON?{
         
-        guard fileName.isEmpty && ofType.isEmpty else {
+        var retval:JSON?
+        var data:Data?
         
-            var retval:JSONArray?
-            var data:Data?
-            var jsonObject:JSON
-            
-            do{
-                if let path = Bundle.main.path(forResource: fileName, ofType: ofType){
-                    
-                    data = try Data(contentsOf: URL(fileURLWithPath: path))
-                    
-                    jsonObject = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments) as JSON
-                    retval = jsonObject as? JSONArray
-                }
-            }catch {
-                retval = JSONArray()
-            }
-
+        guard (!fileName.isEmpty || !type.isEmpty) else{
             return retval
         }
         
-        return nil
+        do{
+            if let path = Bundle.main.path(forResource: fileName, ofType: type){
+                
+                data = try Data(contentsOf: URL(fileURLWithPath: path))
+                
+                retval = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments) as? JSON
+            }
+        }catch {
+           
+        }
+        
+        return retval
     }
 }

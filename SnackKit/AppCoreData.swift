@@ -53,7 +53,7 @@ public class AppCoreData: NSObject{
             dict[NSLocalizedDescriptionKey] = "Failed to initialize the application's saved data"
             dict[NSLocalizedFailureReasonErrorKey] = failureReason
             dict[NSUnderlyingErrorKey] = error
-            error = NSError(domain: "PERSISTENT STORE", code: 9999, userInfo: dict as! [String : Any])
+            error = NSError(domain: "PERSISTENT STORE", code: 9999, userInfo: dict as? [String : Any])
             
             NSLog("Unresolved error \(String(describing: error)), \(error!.userInfo)")
             abort()

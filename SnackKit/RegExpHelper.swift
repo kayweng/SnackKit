@@ -27,21 +27,23 @@ public class RegExpHelper {
         
         let internalExpression: NSRegularExpression  = try! NSRegularExpression(pattern: pattern.rawValue, options: .caseInsensitive)
         
-        let matches:NSArray = internalExpression.matches(in: input, options: NSRegularExpression.MatchingOptions.withoutAnchoringBounds, range: NSMakeRange(0, input.characters.count)) as NSArray
+        let matches:NSArray = internalExpression.matches(in: input, options: NSRegularExpression.MatchingOptions.withoutAnchoringBounds, range: NSMakeRange(0, input.count)) as NSArray
         
         return matches.count > 0
     }
     
     public static func testMaxlength(_ input:String,max:Int) -> Bool{
         
-        let index = input.characters.index(input.startIndex, offsetBy: input.indexOf("."))
-        let newInput = input.substring(to: index) == "" ? input:input.substring(to: index)
+        let index = input.index(input.startIndex, offsetBy: input.indexOf("."))
+        let newInput = input[index..<input.endIndex] ==  "" ? input : String(input[index..<input.endIndex])
+        
+        //let newInput = input.substring(to: index) == "" ? input:input.substring(to: index)
         
         let maxexp =  RegExp.Maxlength.rawValue.replacingOccurrences(of: "MAXLENGTH", with: "\(max)")
         
         let internalExpression: NSRegularExpression  = try! NSRegularExpression(pattern: maxexp, options: .caseInsensitive)
         
-        let matches:NSArray = internalExpression.matches(in: newInput, options: NSRegularExpression.MatchingOptions.withoutAnchoringBounds, range: NSMakeRange(0, newInput.characters.count)) as NSArray
+        let matches:NSArray = internalExpression.matches(in: newInput, options: NSRegularExpression.MatchingOptions.withoutAnchoringBounds, range: NSMakeRange(0, newInput.count)) as NSArray
         
         return matches.count > 0
     }

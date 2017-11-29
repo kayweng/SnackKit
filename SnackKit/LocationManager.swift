@@ -9,6 +9,7 @@
 import Foundation
 import CoreLocation
 import MapKit
+import Contacts
 
 public typealias GeoLocation = (latitude:CLLocationDegrees, longitude:CLLocationDegrees, name:String?)
 
@@ -49,7 +50,7 @@ public class LocationManager: NSObject, CLLocationManagerDelegate{
         self.locationManager.stopUpdatingLocation()
     }
     
-    public func GetCurrentLocation(completion:((_ location:JSONDictionary)->Void)?){
+    public func GetCurrentLocation(completion:((_ location:CNPostalAddress?)->Void)?){
         
         let coder = CLGeocoder()
         
@@ -70,7 +71,7 @@ public class LocationManager: NSObject, CLLocationManagerDelegate{
                     var placeMark: CLPlacemark!
                     placeMark = placeArray?[0]
                     
-                    completion!(placeMark.addressDictionary as! JSONDictionary)
+                    completion!(placeMark.postalAddress)
                 }
             })
         }

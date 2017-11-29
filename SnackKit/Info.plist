@@ -2,20 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>we like to access you location service</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>We like to access your location service</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>We like to access your photo library to use photos</string>
-	<key>NSCameraUsageDescription</key>
-	<string>We like to access your camera device to capture photos</string>
-	<key>UIAppFonts</key>
-	<array>
-		<string>fontawesome-webfont.ttf</string>
-	</array>
-	<key>LSApplicationCategoryType</key>
-	<string></string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -29,10 +15,24 @@
 	<key>CFBundlePackageType</key>
 	<string>FMWK</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>1.1</string>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
+	<key>NSCameraUsageDescription</key>
+	<string>We like to access your camera device to capture photos</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>We like to access your location service</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>we like to access you location service</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>We like to access your photo library to use photos</string>
 	<key>NSPrincipalClass</key>
 	<string></string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>fontawesome-webfont.ttf</string>
+	</array>
 </dict>
 </plist>

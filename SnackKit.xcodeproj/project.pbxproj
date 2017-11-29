@@ -26,6 +26,7 @@
 		BA09A5441DE1A75300369181 /* RegExpHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA09A5431DE1A75300369181 /* RegExpHelper.swift */; };
 		BA2C05DB1DF82E4600922EC4 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2C05DA1DF82E4600922EC4 /* LocationManager.swift */; };
 		BA4FC4C81E62FC5600ECDC6C /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4FC4C71E62FC5600ECDC6C /* NetworkHelper.swift */; };
+		BA71B3CE1FCF079C002FC7FD /* Extension+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA71B3CD1FCF079C002FC7FD /* Extension+UIImage.swift */; };
 		BA7986D51DE34FBC00F900C1 /* BaseInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7986D01DE34FBC00F900C1 /* BaseInfo.swift */; };
 		BA7986D61DE34FBC00F900C1 /* BaseEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7986D11DE34FBC00F900C1 /* BaseEnums.swift */; };
 		BA7986D71DE34FBC00F900C1 /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7986D21DE34FBC00F900C1 /* Extension+UIView.swift */; };
@@ -71,6 +72,7 @@
 		BA09A5431DE1A75300369181 /* RegExpHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegExpHelper.swift; sourceTree = "<group>"; };
 		BA2C05DA1DF82E4600922EC4 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		BA4FC4C71E62FC5600ECDC6C /* NetworkHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
+		BA71B3CD1FCF079C002FC7FD /* Extension+UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIImage.swift"; sourceTree = "<group>"; };
 		BA7986D01DE34FBC00F900C1 /* BaseInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseInfo.swift; sourceTree = "<group>"; };
 		BA7986D11DE34FBC00F900C1 /* BaseEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseEnums.swift; sourceTree = "<group>"; };
 		BA7986D21DE34FBC00F900C1 /* Extension+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				BA7986E91DE3508C00F900C1 /* Extension+UITextView.swift */,
 				BA7986D21DE34FBC00F900C1 /* Extension+UIView.swift */,
 				BA7986D31DE34FBC00F900C1 /* Extension+UIViewController.swift */,
+				BA71B3CD1FCF079C002FC7FD /* Extension+UIImage.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -268,7 +271,7 @@
 		BA09A4FE1DDFED7E00369181 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = snackcode.org;
 				TargetAttributes = {
 					BA09A5061DDFED7E00369181 = {
@@ -350,6 +353,7 @@
 				BA09A5131DDFEE8B00369181 /* FileIOHelper.swift in Sources */,
 				BA7986D81DE34FBC00F900C1 /* Extension+UIViewController.swift in Sources */,
 				BA09A51F1DDFEF9D00369181 /* AppCoreData.swift in Sources */,
+				BA71B3CE1FCF079C002FC7FD /* Extension+UIImage.swift in Sources */,
 				BA7986D91DE34FBC00F900C1 /* FontAwesome.swift in Sources */,
 				BA09A53F1DE1953200369181 /* CoreDataManager.swift in Sources */,
 				BA7986D61DE34FBC00F900C1 /* BaseEnums.swift in Sources */,
@@ -373,7 +377,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -381,7 +387,12 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -405,7 +416,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -427,7 +438,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -435,7 +448,12 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -453,7 +471,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -470,7 +488,6 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
@@ -482,12 +499,12 @@
 				FRAMEWORK_SEARCH_PATHS = /Users/kayweng/Documents/Framework/;
 				INFOPLIST_FILE = SnackKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = ios.SnackKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos10.1;
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "";
@@ -503,7 +520,6 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
@@ -515,12 +531,12 @@
 				FRAMEWORK_SEARCH_PATHS = /Users/kayweng/Documents/Framework/;
 				INFOPLIST_FILE = SnackKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = ios.SnackKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos10.1;
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "";
