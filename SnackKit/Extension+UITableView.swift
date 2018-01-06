@@ -29,7 +29,7 @@ extension UITableView {
         self.setContentOffset(CGPoint(x: 0,y: offSet!), animated: animated)
     }
     
-    public func noResultFound(_ hasRecord:Bool, image name:String){
+    public func noResultFound(_ hasRecord:Bool, image name:String, message:String = "No Record Found"){
         
         let bgView:UIView = UIView(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width,height: self.bounds.size.height))
         let emptyImage:UIImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 64,height: 64))
@@ -39,7 +39,7 @@ extension UITableView {
         emptyImage.image = UIImage(named: name)
     
         emptyMessage.center = CGPoint(x: bgView.center.x, y: bgView.center.y + 20)
-        emptyMessage.text = "No Record Found."
+        emptyMessage.text = message
         emptyMessage.textAlignment = .center
         emptyMessage.font = UIFont.systemFont(ofSize: CGFloat(12.0))
         

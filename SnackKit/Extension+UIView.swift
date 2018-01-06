@@ -159,7 +159,7 @@ extension UIView {
         self.layer.insertSublayer(gradient, at: 0)
     }
     
-    public func TransiteFromTop(duration:CFTimeInterval){
+    public func transiteFromTop(duration:CFTimeInterval){
         
         let animation:CATransition = CATransition()
         

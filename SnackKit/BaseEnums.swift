@@ -79,4 +79,3 @@ public enum DayOfWeek:String{
     case Friday
     case Saturday
 }
-

@@ -109,17 +109,17 @@ extension String {
         return self.replacingOccurrences(of: patternString, with: with)
     }
     
-    subscript (i: Int) -> Character {
+    public subscript (i: Int) -> Character {
        
-        let start = index(startIndex, offsetBy: 1)
-        return Character(String(self[start ..< endIndex]))
+        let start = index(startIndex, offsetBy: i)
+        return Character(String(self[..<start]))
     }
     
-    subscript (i: Int) -> String {
+    public subscript (i: Int) -> String {
         return String(self[i] as Character)
     }
     
-    subscript (r: Range<Int>) -> String {
+    public subscript (r: Range<Int>) -> String {
         
         let start = index(startIndex, offsetBy: r.lowerBound)
         let end = index(start, offsetBy: r.upperBound - r.lowerBound)

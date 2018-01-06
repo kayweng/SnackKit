@@ -38,7 +38,7 @@ extension UILabel{
     }
     
     //Note, this method is merely highlight a label which end with *
-    public func asterikHighlight(color:UIColor? = UIColor.orange){
+    public func addAsterik(color:UIColor? = UIColor.orange){
         
         let newString = NSMutableAttributedString(string: self.text!)
         

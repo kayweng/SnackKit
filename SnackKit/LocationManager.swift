@@ -17,6 +17,8 @@ public class LocationManager: NSObject, CLLocationManagerDelegate{
     
     public let locationManager = CLLocationManager()
     private var currentLocation:GeoLocation?
+    
+    var coder: CLGeocoder!
     var accessorCallBack:((_ location:GeoLocation)->Void)?
     
     public class var shared: LocationManager {
@@ -36,6 +38,7 @@ public class LocationManager: NSObject, CLLocationManagerDelegate{
         super.init()
         
         self.currentLocation = nil
+        self.coder = CLGeocoder()
         
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -51,8 +54,6 @@ public class LocationManager: NSObject, CLLocationManagerDelegate{
     }
     
     public func GetCurrentLocation(completion:((_ location:CNPostalAddress?)->Void)?){
-        
-        let coder = CLGeocoder()
         
         if CLLocationManager.locationServicesEnabled() && self.GetLocationAuthorizationStatus(prompt:true).0{
             
@@ -99,6 +100,22 @@ public class LocationManager: NSObject, CLLocationManagerDelegate{
             return (true,"Location Access is always using in the app & background")
         case .authorizedWhenInUse:
             return (true,"Location Access is using while in the app")
+        }
+    }
+    
+    public func GetLocationAddress(location:CLLocation, completion:@escaping ((_ address:CNPostalAddress?)->Void)){
+        
+        coder.reverseGeocodeLocation(location) { (placemarks, error) in
+            
+            if let _ = error {
+                print("Error getting location:\(String(describing: error))")
+            }else{
+                let placeArray = placemarks as [CLPlacemark]!
+                var placeMark: CLPlacemark!
+                placeMark = placeArray?[0]
+                
+                completion(placeMark.postalAddress)
+            }
         }
     }
     

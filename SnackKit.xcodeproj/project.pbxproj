@@ -24,9 +24,10 @@
 		BA09A53F1DE1953200369181 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA09A53E1DE1953200369181 /* CoreDataManager.swift */; };
 		BA09A5411DE197D600369181 /* AppErrorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA09A5401DE197D600369181 /* AppErrorManager.swift */; };
 		BA09A5441DE1A75300369181 /* RegExpHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA09A5431DE1A75300369181 /* RegExpHelper.swift */; };
+		BA1F67EF1FFD2A3200B13FB5 /* Extension+UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1F67EE1FFD2A3200B13FB5 /* Extension+UIImageView.swift */; };
+		BA1F67F31FFFE0D200B13FB5 /* PHCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1F67F21FFFE0D200B13FB5 /* PHCacheManager.swift */; };
 		BA2C05DB1DF82E4600922EC4 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2C05DA1DF82E4600922EC4 /* LocationManager.swift */; };
 		BA4FC4C81E62FC5600ECDC6C /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4FC4C71E62FC5600ECDC6C /* NetworkHelper.swift */; };
-		BA71B3CE1FCF079C002FC7FD /* Extension+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA71B3CD1FCF079C002FC7FD /* Extension+UIImage.swift */; };
 		BA7986D51DE34FBC00F900C1 /* BaseInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7986D01DE34FBC00F900C1 /* BaseInfo.swift */; };
 		BA7986D61DE34FBC00F900C1 /* BaseEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7986D11DE34FBC00F900C1 /* BaseEnums.swift */; };
 		BA7986D71DE34FBC00F900C1 /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7986D21DE34FBC00F900C1 /* Extension+UIView.swift */; };
@@ -70,9 +71,10 @@
 		BA09A53E1DE1953200369181 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		BA09A5401DE197D600369181 /* AppErrorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppErrorManager.swift; sourceTree = "<group>"; };
 		BA09A5431DE1A75300369181 /* RegExpHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegExpHelper.swift; sourceTree = "<group>"; };
+		BA1F67EE1FFD2A3200B13FB5 /* Extension+UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIImageView.swift"; sourceTree = "<group>"; };
+		BA1F67F21FFFE0D200B13FB5 /* PHCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHCacheManager.swift; sourceTree = "<group>"; };
 		BA2C05DA1DF82E4600922EC4 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		BA4FC4C71E62FC5600ECDC6C /* NetworkHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
-		BA71B3CD1FCF079C002FC7FD /* Extension+UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIImage.swift"; sourceTree = "<group>"; };
 		BA7986D01DE34FBC00F900C1 /* BaseInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseInfo.swift; sourceTree = "<group>"; };
 		BA7986D11DE34FBC00F900C1 /* BaseEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseEnums.swift; sourceTree = "<group>"; };
 		BA7986D21DE34FBC00F900C1 /* Extension+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				BA09A5161DDFEEA700369181 /* AVMediaManager.swift */,
 				BA09A5181DDFEECB00369181 /* MFMailManager.swift */,
 				BA2C05DA1DF82E4600922EC4 /* LocationManager.swift */,
+				BA1F67F21FFFE0D200B13FB5 /* PHCacheManager.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -209,7 +212,7 @@
 				BA7986E91DE3508C00F900C1 /* Extension+UITextView.swift */,
 				BA7986D21DE34FBC00F900C1 /* Extension+UIView.swift */,
 				BA7986D31DE34FBC00F900C1 /* Extension+UIViewController.swift */,
-				BA71B3CD1FCF079C002FC7FD /* Extension+UIImage.swift */,
+				BA1F67EE1FFD2A3200B13FB5 /* Extension+UIImageView.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -353,7 +356,8 @@
 				BA09A5131DDFEE8B00369181 /* FileIOHelper.swift in Sources */,
 				BA7986D81DE34FBC00F900C1 /* Extension+UIViewController.swift in Sources */,
 				BA09A51F1DDFEF9D00369181 /* AppCoreData.swift in Sources */,
-				BA71B3CE1FCF079C002FC7FD /* Extension+UIImage.swift in Sources */,
+				BA1F67F31FFFE0D200B13FB5 /* PHCacheManager.swift in Sources */,
+				BA1F67EF1FFD2A3200B13FB5 /* Extension+UIImageView.swift in Sources */,
 				BA7986D91DE34FBC00F900C1 /* FontAwesome.swift in Sources */,
 				BA09A53F1DE1953200369181 /* CoreDataManager.swift in Sources */,
 				BA7986D61DE34FBC00F900C1 /* BaseEnums.swift in Sources */,

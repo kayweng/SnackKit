@@ -8,11 +8,11 @@
 
 import ContactsUI
 
-public typealias searchContacts = (group:NSPredicate?,contactName:String?)
+public typealias ContactFilters = (group:NSPredicate?,contactName:String?)
 
 public class ContactStore{
     
-    public static func findContacts(_ search:searchContacts)->[CNContact]?{
+    public static func findContacts()->[CNContact]?{
         
         var retval:[CNContact]?
         let store = CNContactStore()
@@ -21,24 +21,21 @@ public class ContactStore{
             
         case .notDetermined:
             
-            store.requestAccess(for: CNEntityType.contacts, completionHandler: { (authroized:Bool, error:NSError?)-> Void in
-                retval = self.retrieveContacts(store,search:search)
-                } as! (Bool, Error?) -> Void)
+            store.requestAccess(for: CNEntityType.contacts, completionHandler: { (authorized, error) in
+                retval = self.retrieveContacts(store)
+            })
             
             break
         case .authorized:
-            retval = self.retrieveContacts(store, search: search)
-            
-        case .denied: break
-        //Access denied, return nil
-        case .restricted: break
-            //Access retricted, return nil
+            retval = self.retrieveContacts(store)
+        default:
+            retval = []
         }
         
         return retval
     }
     
-    fileprivate static func retrieveContacts(_ store:CNContactStore,search:searchContacts)->[CNContact]{
+    fileprivate static func retrieveContacts(_ store:CNContactStore)->[CNContact]{
         
         var contacts:[CNContact] = []
         var allContainers: [CNContainer] = []
