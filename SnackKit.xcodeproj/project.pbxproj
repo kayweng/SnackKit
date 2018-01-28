@@ -28,6 +28,7 @@
 		BA1F67F31FFFE0D200B13FB5 /* PHCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1F67F21FFFE0D200B13FB5 /* PHCacheManager.swift */; };
 		BA2C05DB1DF82E4600922EC4 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2C05DA1DF82E4600922EC4 /* LocationManager.swift */; };
 		BA4FC4C81E62FC5600ECDC6C /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4FC4C71E62FC5600ECDC6C /* NetworkHelper.swift */; };
+		BA6EA3C120092AC5001426D0 /* Extension+PHAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6EA3C020092AC5001426D0 /* Extension+PHAsset.swift */; };
 		BA7986D51DE34FBC00F900C1 /* BaseInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7986D01DE34FBC00F900C1 /* BaseInfo.swift */; };
 		BA7986D61DE34FBC00F900C1 /* BaseEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7986D11DE34FBC00F900C1 /* BaseEnums.swift */; };
 		BA7986D71DE34FBC00F900C1 /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7986D21DE34FBC00F900C1 /* Extension+UIView.swift */; };
@@ -75,6 +76,7 @@
 		BA1F67F21FFFE0D200B13FB5 /* PHCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHCacheManager.swift; sourceTree = "<group>"; };
 		BA2C05DA1DF82E4600922EC4 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		BA4FC4C71E62FC5600ECDC6C /* NetworkHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
+		BA6EA3C020092AC5001426D0 /* Extension+PHAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+PHAsset.swift"; sourceTree = "<group>"; };
 		BA7986D01DE34FBC00F900C1 /* BaseInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseInfo.swift; sourceTree = "<group>"; };
 		BA7986D11DE34FBC00F900C1 /* BaseEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseEnums.swift; sourceTree = "<group>"; };
 		BA7986D21DE34FBC00F900C1 /* Extension+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 				BA7986D21DE34FBC00F900C1 /* Extension+UIView.swift */,
 				BA7986D31DE34FBC00F900C1 /* Extension+UIViewController.swift */,
 				BA1F67EE1FFD2A3200B13FB5 /* Extension+UIImageView.swift */,
+				BA6EA3C020092AC5001426D0 /* Extension+PHAsset.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				BA7986F01DE3508C00F900C1 /* Extension+UIButton.swift in Sources */,
 				BA7986EA1DE3508C00F900C1 /* Extension+Array.swift in Sources */,
 				BA7986F71DE3508C00F900C1 /* Extension+UITextField.swift in Sources */,
+				BA6EA3C120092AC5001426D0 /* Extension+PHAsset.swift in Sources */,
 				BA09A5131DDFEE8B00369181 /* FileIOHelper.swift in Sources */,
 				BA7986D81DE34FBC00F900C1 /* Extension+UIViewController.swift in Sources */,
 				BA09A51F1DDFEF9D00369181 /* AppCoreData.swift in Sources */,

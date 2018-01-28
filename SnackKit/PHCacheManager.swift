@@ -33,49 +33,146 @@ public class PHCacheManager: NSObject, PHPhotoLibraryChangeObserver {
         super.init()
         
         self.imageManager = PHCachingImageManager()
-        
+        self.imageManager.allowsCachingHighQualityImages = true
+       
         PHPhotoLibrary.shared().register(self)
-        
-        self.ResetCachedAssets()
     }
     
     public func photoLibraryDidChange(_ changeInstance: PHChange) {
-        self.ResetCachedAssets()
+        self.resetCachedAssets()
     }
     
-    public func FetchPHAssets(mediaType:PHAssetMediaType, options:PHFetchOptions)->[PHAsset]?{
+    fileprivate func enumeratePHAssets(result:PHFetchResult<AnyObject>)->[PHAsset]?{
         
-        var phAssets:[PHAsset]?
-        let auth = RequestAuthorization()
+        var assets:[PHAsset]?
         
-        guard auth.granted else {
-            return phAssets
-        }
-        
-        self.ResetCachedAssets()
-        
-        let assets = PHAsset.fetchAssets(with: mediaType, options: options)
-
-        if assets.count > 0 {
-            phAssets = []
+        if result.count > 0 {
+            assets = []
             
-            assets.enumerateObjects({ (object, count, stop) in
-                phAssets!.append(object)
+            result.enumerateObjects({ (object, count, stop) in
+                assets!.append(object as! PHAsset)
             })
         }
-
-        return phAssets
+        
+        return assets
     }
     
-    public func FetchAssetImage(asset:PHAsset,targetSize size:CGSize, mode:PHImageContentMode, options:PHImageRequestOptions? )->UIImage?{
+    public func startCachingPHAssets(_ assets:[PHAsset], targetSize size:CGSize, contentMode mode:PHImageContentMode, options:PHImageRequestOptions?){
         
-        var assetImage:UIImage?
-        let auth = RequestAuthorization()
+        self.imageManager.startCachingImages(for: assets, targetSize: size, contentMode: mode, options: options)
+    }
+    
+    public func resetCachedAssets(){
+        self.imageManager.stopCachingImagesForAllAssets()
+    }
+
+    //MARK: - FetchAssets
+    public func fetchAssets(options:PHFetchOptions?)->[PHAsset]?{
+        
+        let auth = requestAuthorization()
         
         guard auth.granted else {
             return nil
         }
         
+        let fetchResult = PHAsset.fetchAssets(with: options)
+        let assets = enumeratePHAssets(result: fetchResult as! PHFetchResult<AnyObject>)
+        
+        return assets
+    }
+    
+    public func fetchAssets(localIdentifiers:[String], options:PHFetchOptions?)->[PHAsset]?{
+        
+        let auth = requestAuthorization()
+        
+        guard auth.granted else {
+            return nil
+        }
+        
+        let fetchResult = PHAsset.fetchAssets(withLocalIdentifiers: localIdentifiers, options: options)
+        let assets = enumeratePHAssets(result: fetchResult as! PHFetchResult<AnyObject>)
+        
+        return assets
+    }
+    
+    public func fetchAssets(collection:PHAssetCollection, options:PHFetchOptions?)->[PHAsset]?{
+        
+        let auth = requestAuthorization()
+        
+        guard auth.granted else {
+            return nil
+        }
+        
+        let fetchResult = PHAsset.fetchAssets(in: collection, options: options)
+        let assets = enumeratePHAssets(result: fetchResult as! PHFetchResult<AnyObject>)
+        
+        return assets
+    }
+    
+    public func fetchAssets(mediaType:PHAssetMediaType, options:PHFetchOptions)->[PHAsset]?{
+        
+        let auth = requestAuthorization()
+        
+        guard auth.granted else {
+            return nil
+        }
+        
+        let fetchResult = PHAsset.fetchAssets(with: mediaType, options: options)
+        let assets = enumeratePHAssets(result: fetchResult as! PHFetchResult<AnyObject>)
+        
+        return assets
+    }
+    
+    //MARK: - FetchAssetCollection
+    public func fetchAssetCollection(with type:PHAssetCollectionType, subType:PHAssetCollectionSubtype, options: PHFetchOptions?)->[PHAsset]?{
+        
+        let auth = requestAuthorization()
+        
+        guard auth.granted else {
+            return nil
+        }
+        
+        let collectionFetchResult = PHAssetCollection.fetchAssetCollections(with: type, subtype: subType, options: nil)
+       
+        if let collection:PHAssetCollection = collectionFetchResult.firstObject{
+            let fetchResult = PHAsset.fetchAssets(in: collection, options: options)
+            let assets = enumeratePHAssets(result: fetchResult as! PHFetchResult<AnyObject>)
+            
+            return assets
+        }
+       
+        return nil
+    }
+    
+    //MARK: - Fetch Photo Asset
+    public func fetchAssetImageData(asset:PHAsset, options:PHImageRequestOptions?, completion:@escaping (UIImage?)->Void){
+    
+        let auth = requestAuthorization()
+        
+        guard auth.granted else {
+            completion(nil)
+            return
+        }
+        
+        imageManager.requestImageData(for: asset, options: options) { (data, _, _, _) in
+            
+            if let img = UIImage(data: data!){
+                completion(img)
+            }else{
+                completion(nil)
+            }
+        }
+    }
+    
+    public func fetchAssetImage(asset:PHAsset,targetSize size:CGSize, mode:PHImageContentMode, options:PHImageRequestOptions? )->UIImage?{
+        
+        var assetImage:UIImage?
+        let auth = requestAuthorization()
+        
+        guard auth.granted else {
+            return nil
+        }
+
         imageManager.requestImage(for: asset, targetSize: size, contentMode: mode, options: options) { (image, info) in
             assetImage = image
         }
@@ -83,11 +180,54 @@ public class PHCacheManager: NSObject, PHPhotoLibraryChangeObserver {
         return assetImage
     }
     
-    public func ResetCachedAssets(){
-        self.imageManager.stopCachingImagesForAllAssets()
+    // MARK: - Fetch AV Asset
+    public func fetchAssetVideo(asset:PHAsset, options:PHVideoRequestOptions?, completion:@escaping (AVURLAsset?)->Void){
+        
+        let auth = requestAuthorization()
+        
+        guard auth.granted else {
+            completion(nil)
+            return
+        }
+
+        let group = DispatchGroup()
+        group.enter()
+        
+        PHCachingImageManager().requestAVAsset(forVideo: asset, options: options) { (av, audio, info) in
+            let assetURL = av as! AVURLAsset
+            completion(assetURL)
+            group.leave()
+        }
+        
+        group.wait()
     }
     
-    public func RequestAuthorization()->PHPhotoLibraryAuthResult{
+    public func getThumbnailFor(asset:PHAsset, completionHandler:@escaping (_ thumbnail:UIImage?)->()){
+        
+        asset.getURL { (path) in
+            do{
+                if let url = path{
+                    let asset = AVURLAsset(url: url , options: nil)
+                    let imgGenerator = AVAssetImageGenerator(asset: asset)
+                    
+                    imgGenerator.appliesPreferredTrackTransform = true
+                    
+                    let cgImage = try imgGenerator.copyCGImage(at: CMTimeMake(0, 1), actualTime: nil)
+                    let thumbnail = UIImage(cgImage: cgImage)
+                    
+                    completionHandler(thumbnail)
+                }else{
+                    completionHandler(nil)
+                }
+            }catch let error {
+                print(error.localizedDescription)
+                completionHandler(nil)
+            }
+        }
+    }
+
+    //MARK: - Authorization
+    public func requestAuthorization()->PHPhotoLibraryAuthResult{
         
         var authorizationResult:PHPhotoLibraryAuthResult = (PHAuthorizationStatus.notDetermined, false, "")
         
@@ -96,6 +236,7 @@ public class PHCacheManager: NSObject, PHPhotoLibraryChangeObserver {
         
         PHPhotoLibrary.requestAuthorization { (status) in
             authorizationResult.status = status
+            authorizationResult.granted = false
             
             switch status{
             case .authorized:
@@ -103,13 +244,10 @@ public class PHCacheManager: NSObject, PHPhotoLibraryChangeObserver {
                 authorizationResult.granted = true
             case .denied:
                 authorizationResult.message = "Access denied to photo library"
-                authorizationResult.granted = false
             case .notDetermined:
                 authorizationResult.message = "You are not determine access to photo library"
-                authorizationResult.granted = false
             case .restricted:
                 authorizationResult.message = "You are restricted to access photo library"
-                authorizationResult.granted = false
             }
             
             group.leave()
@@ -119,5 +257,4 @@ public class PHCacheManager: NSObject, PHPhotoLibraryChangeObserver {
         
         return authorizationResult
     }
-    
 }

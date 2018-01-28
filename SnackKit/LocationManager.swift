@@ -53,9 +53,9 @@ public class LocationManager: NSObject, CLLocationManagerDelegate{
         self.locationManager.stopUpdatingLocation()
     }
     
-    public func GetCurrentLocation(completion:((_ location:CNPostalAddress?)->Void)?){
+    public func retrieveCurrentLocation(completion:((_ location:CNPostalAddress?)->Void)?){
         
-        if CLLocationManager.locationServicesEnabled() && self.GetLocationAuthorizationStatus(prompt:true).0{
+        if CLLocationManager.locationServicesEnabled() && self.retrieveLocationAuthorizationStatus(prompt:true).0{
             
             self.locationManager.delegate = self
             self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -78,7 +78,7 @@ public class LocationManager: NSObject, CLLocationManagerDelegate{
         }
     }
     
-    public func GetLocationAuthorizationStatus(prompt:Bool)->(status:Bool,description:String){
+    public func retrieveLocationAuthorizationStatus(prompt:Bool)->(status:Bool,description:String){
         
         if !CLLocationManager.locationServicesEnabled(){
             return (false,"Location Service is disabled")
@@ -103,7 +103,7 @@ public class LocationManager: NSObject, CLLocationManagerDelegate{
         }
     }
     
-    public func GetLocationAddress(location:CLLocation, completion:@escaping ((_ address:CNPostalAddress?)->Void)){
+    public func retrieveLocationAddress(location:CLLocation, completion:@escaping ((_ address:CNPostalAddress?)->Void)){
         
         coder.reverseGeocodeLocation(location) { (placemarks, error) in
             
