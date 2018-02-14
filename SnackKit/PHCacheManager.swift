@@ -149,37 +149,33 @@ public class PHCacheManager: NSObject, PHPhotoLibraryChangeObserver {
     
         let auth = requestAuthorization()
         
-        guard auth.granted else {
-            completion(nil)
-            return
-        }
-        
-        imageManager.requestImageData(for: asset, options: options) { (data, _, _, _) in
-            
-            if let img = UIImage(data: data!){
-                completion(img)
-            }else{
-                completion(nil)
+        if auth.granted{
+            imageManager.requestImageData(for: asset, options: options) { (data, _, _, _) in
+                
+                if let img = UIImage(data: data!){
+                    completion(img)
+                }else{
+                    completion(nil)
+                }
             }
+        }else{
+            completion(nil)
         }
     }
     
-    public func fetchAssetImage(asset:PHAsset,targetSize size:CGSize, mode:PHImageContentMode, options:PHImageRequestOptions? )->UIImage?{
+    public func fetchAssetImage(asset:PHAsset,targetSize size:CGSize, mode:PHImageContentMode, options:PHImageRequestOptions?, completion:@escaping (UIImage?)->Void){
         
-        var assetImage:UIImage?
         let auth = requestAuthorization()
         
-        guard auth.granted else {
-            return nil
+        if auth.granted{
+            imageManager.requestImage(for: asset, targetSize: size, contentMode: mode, options: options) { (image, info) in
+                completion(image)
+            }
+        }else{
+            completion(nil)
         }
-
-        imageManager.requestImage(for: asset, targetSize: size, contentMode: mode, options: options) { (image, info) in
-            assetImage = image
-        }
-        
-        return assetImage
     }
-    
+
     // MARK: - Fetch AV Asset
     public func fetchAssetVideo(asset:PHAsset, options:PHVideoRequestOptions?, completion:@escaping (AVURLAsset?)->Void){
         
@@ -194,8 +190,13 @@ public class PHCacheManager: NSObject, PHPhotoLibraryChangeObserver {
         group.enter()
         
         PHCachingImageManager().requestAVAsset(forVideo: asset, options: options) { (av, audio, info) in
-            let assetURL = av as! AVURLAsset
-            completion(assetURL)
+        
+            if let assetURL = av{
+                completion(assetURL as? AVURLAsset)
+            }else{
+                completion(nil)
+            }
+            
             group.leave()
         }
         
