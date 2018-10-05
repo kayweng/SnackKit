@@ -102,7 +102,7 @@ public class AVMediaManager : NSObject, IAVMediaManager, UIImagePickerController
         }
     }
     
-    private func verifyMediaAccessPermission(sourceType:UIImagePickerControllerSourceType) -> Bool{
+    private func verifyMediaAccessPermission(sourceType:UIImagePickerController.SourceType) -> Bool{
         
         
         return true
@@ -113,16 +113,19 @@ public class AVMediaManager : NSObject, IAVMediaManager, UIImagePickerController
         
     }
     
-    public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+// Local variable inserted by Swift 4.2 migrator.
+let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+
         
         let mode = self.mediaPicker.cameraCaptureMode
         var retData:NSData?
         
         if mode == .photo{
             
-            let img = info[UIImagePickerControllerOriginalImage] as! UIImage
+            let img = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as! UIImage
             
-            retData = UIImagePNGRepresentation(img) as NSData?
+            retData = img.pngData() as NSData?
             
         }
         
@@ -133,4 +136,14 @@ public class AVMediaManager : NSObject, IAVMediaManager, UIImagePickerController
             })
         }
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
+	return input.rawValue
 }

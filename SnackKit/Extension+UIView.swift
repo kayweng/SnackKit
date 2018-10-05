@@ -134,7 +134,7 @@ extension UIView {
                 vw.addGradientLayers(colors: colors, at: locations)
                 
                 coll.backgroundView = vw
-                sendSubview(toBack: vw)
+                sendSubviewToBack(vw)
                 
             }else{
                 self.addGradientLayers(colors: colors, at: locations)
@@ -163,14 +163,19 @@ extension UIView {
         
         let animation:CATransition = CATransition()
         
-        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-        animation.type = kCATransitionPush
-        animation.subtype = kCATransitionFromTop
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        animation.type = CATransitionType.push
+        animation.subtype = CATransitionSubtype.fromTop
         animation.duration = duration
         
-        self.layer.add(animation, forKey: kCATransitionPush)
+        self.layer.add(animation, forKey: convertFromCATransitionType(CATransitionType.push))
     }
 
 }
 
 
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromCATransitionType(_ input: CATransitionType) -> String {
+	return input.rawValue
+}

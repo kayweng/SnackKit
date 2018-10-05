@@ -40,7 +40,7 @@ extension UIViewController{
     public func alert(title:String, message:String, actions:Array<UIAlertAction>, textfields:Array<UITextField>) -> UIAlertController{
         
         let alert = UIAlertController(title: title
-            , message: message, preferredStyle: UIAlertControllerStyle.alert);
+            , message: message, preferredStyle: UIAlertController.Style.alert);
         
         for _:UITextField in textfields{
             alert.addTextField(configurationHandler: { (textField: UITextField!) in
@@ -61,7 +61,7 @@ extension UIViewController{
     
     public func alertWithView(_ subview:UIView){
         
-        let alert = UIAlertController(title: "", message: "", preferredStyle: UIAlertControllerStyle.actionSheet)
+        let alert = UIAlertController(title: "", message: "", preferredStyle: UIAlertController.Style.actionSheet)
         
         alert.view.addSubview(subview)
         
@@ -69,7 +69,7 @@ extension UIViewController{
     }
     
     //- display in action style with multiple actions
-    public func alert(title:String, message:String, style:UIAlertControllerStyle, actions:Array<UIAlertAction>){
+    public func alert(title:String, message:String, style:UIAlertController.Style, actions:Array<UIAlertAction>){
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: style)
         
@@ -83,9 +83,9 @@ extension UIViewController{
     //- display in alert style with OK
     public func alert(title:String, message:String, control:UITextField){
         
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         
-        let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { action -> Void in
+        let action = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { action -> Void in
             control.becomeFirstResponder()
         });
         
@@ -96,9 +96,9 @@ extension UIViewController{
     
     public func alert(title:String, message:String){
         
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         
-        let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { action -> Void in
+        let action = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { action -> Void in
               //continue here
         });
         

@@ -68,7 +68,7 @@ public class LocationManager: NSObject, CLLocationManagerDelegate{
                 if let _ = error {
                     print("Error getting location:\(String(describing: error))")
                 }else{
-                    let placeArray = placemarks as [CLPlacemark]!
+                    let placeArray = placemarks
                     var placeMark: CLPlacemark!
                     placeMark = placeArray?[0]
                     
@@ -110,7 +110,7 @@ public class LocationManager: NSObject, CLLocationManagerDelegate{
             if let _ = error {
                 print("Error getting location:\(String(describing: error))")
             }else{
-                let placeArray = placemarks as [CLPlacemark]!
+                let placeArray = placemarks
                 var placeMark: CLPlacemark!
                 placeMark = placeArray?[0]
                 

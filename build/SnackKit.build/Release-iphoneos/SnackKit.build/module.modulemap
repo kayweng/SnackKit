@@ -1,0 +1,6 @@
+framework module SnackKit {
+  umbrella header "SnackKit.h"
+
+  export *
+  module * { export * }
+}

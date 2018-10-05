@@ -12,11 +12,11 @@ import UIKit
 extension UIButton{
     
     //Set Button Icon
-    public func setFAIcon(_ fa:fontawesome, color:UIColor?, forState state: UIControlState){
+    public func setFAIcon(_ fa:fontawesome, color:UIColor?, forState state: UIControl.State){
         
         if let font = fontAwesome {
             
-            let attributedString = NSAttributedString(string: fa.text!,attributes: [NSAttributedStringKey.foregroundColor : color ?? self.tintColor!])
+            let attributedString = NSAttributedString(string: fa.text!,attributes: [NSAttributedString.Key.foregroundColor : color ?? self.tintColor!])
             
             self.titleLabel?.font = font
             self.setAttributedTitle(attributedString, for: state)

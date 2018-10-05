@@ -147,7 +147,7 @@ public class NotificationManager{
         content.title = NSString.localizedUserNotificationString(forKey: item.title, arguments: nil)
         content.subtitle = item.subtitle ?? ""
         content.body = NSString.localizedUserNotificationString(forKey: item.body, arguments: nil)
-        content.sound = UNNotificationSound.default()
+        content.sound = UNNotificationSound.default
         content.badge = item.badgeNumber as NSNumber?
         content.launchImageName = item.launchImage ?? ""
         content.categoryIdentifier = item.category?.identifier ?? ""

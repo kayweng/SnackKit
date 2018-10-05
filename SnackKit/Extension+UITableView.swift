@@ -51,7 +51,7 @@ extension UITableView {
         self.separatorStyle = hasRecord ? .singleLine : .none
     }
     
-    public func updateRows(at indexPath:[IndexPath], action: TableAction, animated:UITableViewRowAnimation? = UITableViewRowAnimation.automatic){
+    public func updateRows(at indexPath:[IndexPath], action: TableAction, animated:UITableView.RowAnimation? = UITableView.RowAnimation.automatic){
         
         self.beginUpdates()
         
@@ -70,14 +70,14 @@ extension UITableView {
         self.endUpdates()
     }
     
-    public func removeSections(at sections:[Int],animated: UITableViewRowAnimation? = UITableViewRowAnimation.automatic){
+    public func removeSections(at sections:[Int],animated: UITableView.RowAnimation? = UITableView.RowAnimation.automatic){
         
         for section in sections{
             self.deleteSections(IndexSet(integer: section), with: animated!)
         }
     }
     
-    public func reloadSections(at sections:[Int], animated:UITableViewRowAnimation? = UITableViewRowAnimation.none){
+    public func reloadSections(at sections:[Int], animated:UITableView.RowAnimation? = UITableView.RowAnimation.none){
         
         self.reloadData()
         

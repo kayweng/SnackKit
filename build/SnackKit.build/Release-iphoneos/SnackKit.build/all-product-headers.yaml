@@ -1,0 +1,28 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [
+    {
+      'type': 'directory',
+      'name': "/Users/jayahariv/Documents/GH/SnackKit/build/Release-iphoneos/SnackKit.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "SnackKit.h",
+          'external-contents': "/Users/jayahariv/Documents/GH/SnackKit/SnackKit/SnackKit.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/jayahariv/Documents/GH/SnackKit/build/Release-iphoneos/SnackKit.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/jayahariv/Documents/GH/SnackKit/build/SnackKit.build/Release-iphoneos/SnackKit.build/module.modulemap"
+        }
+      ]
+    }
+  ]
+}

@@ -17,7 +17,7 @@ extension UITextField{
         }
         
         self.returnKeyType = type
-        self.addTarget(controller, action: #selector(UIInputViewController.dismissKeyboard), for: UIControlEvents.editingDidEndOnExit)
+        self.addTarget(controller, action: #selector(UIInputViewController.dismissKeyboard), for: UIControl.Event.editingDidEndOnExit)
     }
     
     public func clear(){
@@ -39,7 +39,7 @@ extension UITextField{
     public func normal(_ text:String? = "", size:CGFloat? = nil){
         
         let txt = text!.count > 0 ? text : self.text!
-        let attrs = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: size ?? self.font!.pointSize)]
+        let attrs = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: size ?? self.font!.pointSize)]
         let normalString = NSMutableAttributedString(string: txt!, attributes: attrs)
         
         self.attributedText = normalString
@@ -48,7 +48,7 @@ extension UITextField{
     public func bold(_ text:String? = "", size:CGFloat? = nil){
         
         let txt = text!.count > 0 ? text : self.text!
-        let attrs = [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: size ?? self.font!.pointSize)]
+        let attrs = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: size ?? self.font!.pointSize)]
         let boldString = NSMutableAttributedString(string: txt!, attributes: attrs)
         
         self.attributedText = boldString
@@ -57,7 +57,7 @@ extension UITextField{
     public func italic(_ text:String? = "", size:CGFloat? = nil){
         
         let txt = text!.count > 0 ? text : self.text!
-        let attrs = [NSAttributedStringKey.font: UIFont.italicSystemFont(ofSize: size ?? self.font!.pointSize)]
+        let attrs = [NSAttributedString.Key.font: UIFont.italicSystemFont(ofSize: size ?? self.font!.pointSize)]
         let italicString = NSMutableAttributedString(string: txt!, attributes: attrs)
         
         self.attributedText = italicString

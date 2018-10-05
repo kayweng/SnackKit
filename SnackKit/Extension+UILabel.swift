@@ -42,7 +42,7 @@ extension UILabel{
         
         let newString = NSMutableAttributedString(string: self.text!)
         
-        newString.addAttribute(NSAttributedStringKey.foregroundColor, value: color!, range: NSRange(location:self.text!.count-1,length:1))
+        newString.addAttribute(NSAttributedString.Key.foregroundColor, value: color!, range: NSRange(location:self.text!.count-1,length:1))
         
         self.attributedText = newString
 
@@ -61,7 +61,7 @@ extension UILabel{
     public func bold(_ text:String? = "",color:UIColor? = nil,size:CGFloat? = nil){
         
         let txt = text!.count > 0 ? text : self.text!
-        let attrs = [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: size ?? self.font.pointSize)]
+        let attrs = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: size ?? self.font.pointSize)]
         let boldString = NSMutableAttributedString(string: txt!, attributes: attrs)
        
         self.attributedText = boldString
